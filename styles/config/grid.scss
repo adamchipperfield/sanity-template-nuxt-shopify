@@ -1,0 +1,37 @@
+/**
+ * Config: Grid
+ * -----------------------------------------------------------------------------
+ * Primary grid system based on materialize.css.
+ * - https://sass-mq.github.io/sass-mq
+ */
+@import '~sass-mq';
+
+$mq-breakpoints: (
+  tiny: 320px,
+  small: 576px,
+  medium: 768px,
+  large: 1024px,
+  wide: 1328px,
+  ultrawide: 2200px
+);
+
+$NUM_COLS: 12;
+$GUTTER_WIDTH: 1rem;
+
+@mixin grid-classes($size, $i, $perc) {
+  &.#{$size}#{$i} {
+    flex: 0 0 $perc;
+  }
+
+  &.offset-#{$size}#{$i} {
+    margin-left: $perc;
+  }
+
+  &.pull-#{$size}#{$i} {
+    right: $perc;
+  }
+
+  &.push-#{$size}#{$i} {
+    left: $perc;
+  }
+}

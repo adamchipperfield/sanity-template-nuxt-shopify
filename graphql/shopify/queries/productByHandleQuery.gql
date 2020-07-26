@@ -1,0 +1,7 @@
+#import "@/graphql/shopify/fragments/ProductFragment.gql"
+
+query productByHandleQuery($handle: String!) {
+  productByHandle(handle: $handle) {
+    ...ProductFragment
+  }
+}

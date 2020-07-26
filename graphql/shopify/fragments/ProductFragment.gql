@@ -1,0 +1,35 @@
+#import "@/graphql/shopify/fragments/VariantFragment.gql"
+
+fragment ProductFragment on Product {
+  title
+  descriptionHtml
+  images(first: 10) {
+    edges {
+      node {
+        originalSrc
+        altText
+      }
+    }
+  }
+  presentmentPriceRanges(first: 10) {
+    edges {
+      node {
+        minVariantPrice {
+          amount
+          currencyCode
+        }
+      }
+    }
+  }
+  options {
+    name
+    values
+  }
+  variants(first: 50) {
+    edges {
+      node {
+        ...VariantFragment
+      }
+    }
+  }
+}

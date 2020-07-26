@@ -1,0 +1,4 @@
+fragment BlogFragment on Blog {
+  title
+  handle
+}

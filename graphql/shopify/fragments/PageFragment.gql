@@ -1,0 +1,4 @@
+fragment PageFragment on Page {
+  title
+  body
+}

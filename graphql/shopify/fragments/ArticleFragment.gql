@@ -1,0 +1,12 @@
+fragment ArticleFragment on Article {
+  title
+  publishedAt
+  image {
+    transformedSrc(
+      maxHeight: 1200
+      maxWidth: 1200
+      crop: CENTER
+    )
+  }
+  contentHtml
+}

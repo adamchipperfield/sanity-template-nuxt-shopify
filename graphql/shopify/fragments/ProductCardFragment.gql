@@ -1,0 +1,25 @@
+fragment ProductCardFragment on Product {
+  title
+  handle
+  presentmentPriceRanges(first: 10) {
+    edges {
+      node {
+        minVariantPrice {
+          amount
+          currencyCode
+        }
+      }
+    }
+  }
+  images(first: 1) {
+    edges {
+      node {
+        transformedSrc(
+          maxHeight: 564
+          maxWidth: 470
+        )
+        altText
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "general": {
+    "states": {
+      "loading": "Loading"
+    }
+  },
+  "collections": {
+    "pagination": {
+      "load_more": "Load more"
+    }
+  },
+  "products": {
+    "form": {
+      "add_to_cart": "Add to cart",
+      "adding_to_cart": "Adding"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Cart",
+      "empty": "Your cart is empty.",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "shipping_taxes": "Shipping, taxes, and discounts calculated at checkout.",
+      "view_cart": "View Cart",
+      "checkout": "Checkout Securely"
+    },
+    "line_item": {
+      "remove": "Remove",
+      "removing": "Removing"
+    }
+  },
+  "checkout": {
+    "general": {
+      "title": "Checkout",
+      "redirecting": "Redirecting you to checkout"
+    }
+  },
+  "blogs": {
+    "pagination": {
+      "load_more": "Load more"
+    }
+  }
+}

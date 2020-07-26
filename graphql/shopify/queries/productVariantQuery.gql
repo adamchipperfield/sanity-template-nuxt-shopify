@@ -1,0 +1,9 @@
+#import "@/graphql/shopify/fragments/VariantFragment"
+
+query productVariantQuery($id: ID!) {
+  node(id: $id) {
+    ... on ProductVariant {
+      ...VariantFragment
+    }
+  }
+}

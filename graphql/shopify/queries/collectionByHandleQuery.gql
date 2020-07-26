@@ -1,0 +1,18 @@
+#import "@/graphql/shopify/fragments/CollectionFragment.gql"
+
+query collectionByHandleQuery($handle: String!, $cursor: String) {
+  collectionByHandle(handle: $handle) {
+    ...CollectionFragment
+    products(first: 24, after: $cursor) {
+      pageInfo {
+        hasNextPage
+      }
+      edges {
+        cursor
+        node {
+          ...ProductCardFragment
+        }
+      }
+    }
+  }
+}

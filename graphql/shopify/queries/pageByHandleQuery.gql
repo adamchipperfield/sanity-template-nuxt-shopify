@@ -1,0 +1,7 @@
+#import "@/graphql/shopify/fragments/PageFragment.gql"
+
+query pageByHandleQuery($handle: String!) {
+  pageByHandle(handle: $handle) {
+    ...PageFragment
+  }
+}

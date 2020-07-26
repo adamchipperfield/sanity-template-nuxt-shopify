@@ -1,0 +1,4 @@
+fragment CollectionCardFragment on Collection {
+  title
+  handle
+}

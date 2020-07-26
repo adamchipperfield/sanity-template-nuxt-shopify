@@ -1,0 +1,16 @@
+/**
+ * Styles / Base / Typography
+ * -----------------------------------------------------------------------------
+ * Sets the standard for typographical elements.
+ */
+body {
+  font-family: $FONT_BODY;
+  font-size: ms(0);
+  letter-spacing: $LETTER_SPACING_BODY;
+  line-height: $LINE_HEIGHT_BODY;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

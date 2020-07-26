@@ -1,0 +1,11 @@
+#import "@/graphql/shopify/fragments/CollectionCardFragment.gql"
+
+query allCollectionsQuery {
+  collections(first: 24) {
+    edges {
+      node {
+        ...CollectionCardFragment
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+fragment ArticleCardFragment on Article {
+  title
+  handle
+  publishedAt
+  image {
+    transformedSrc(
+      maxHeight: 416
+      maxWidth: 416
+      crop: CENTER
+    )
+  }
+  blog {
+    handle
+  }
+}

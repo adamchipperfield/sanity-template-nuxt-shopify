@@ -1,0 +1,14 @@
+/**
+ * Styles / Base / Layout
+ * -----------------------------------------------------------------------------
+ * Defines the base styles for the layout class.
+ */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__main {
+    flex-grow: 1;
+  }
+}

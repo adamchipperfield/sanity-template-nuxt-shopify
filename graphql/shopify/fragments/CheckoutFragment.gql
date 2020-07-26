@@ -1,0 +1,4 @@
+fragment CheckoutFragment on Checkout {
+  id
+  webUrl
+}

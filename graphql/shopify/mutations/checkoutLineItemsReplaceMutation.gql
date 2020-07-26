@@ -1,0 +1,15 @@
+#import "@/graphql/shopify/fragments/CheckoutFragment.gql"
+
+mutation checkoutLineItemsReplace(
+  $lineItems: [CheckoutLineItemInput!]!
+  $checkoutId: ID!
+) {
+  checkoutLineItemsReplace(
+    lineItems: $lineItems
+    checkoutId: $checkoutId
+  ) {
+    checkout {
+      ...CheckoutFragment
+    }
+  }
+}
