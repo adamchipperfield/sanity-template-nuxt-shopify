@@ -21,6 +21,7 @@ $GUTTER_WIDTH: 1rem;
 @mixin grid-classes($size, $i, $perc) {
   &.#{$size}#{$i} {
     flex: 0 0 $perc;
+    max-width: $perc;
   }
 
   &.offset-#{$size}#{$i} {

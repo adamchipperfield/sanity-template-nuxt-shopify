@@ -3,12 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col xs12 l7">
-          <img
-            v-for="(image, index) in product.images"
-            :key="index"
-            :src="image.originalSrc"
-            :alt="image.altText ? image.altText : product.title"
-          />
+          <product-gallery :images="product.images" />
         </div>
 
         <div class="col xs12 l5">
@@ -29,10 +24,12 @@ import productByHandleQuery from '@/graphql/shopify/queries/productByHandleQuery
 import { transformProduct } from '~/utils/transform-graphql'
 
 import ProductForm from '~/components/ProductForm'
+import ProductGallery from '~/components/ProductGallery'
 
 export default {
   components: {
-    ProductForm
+    ProductForm,
+    ProductGallery
   },
 
   async asyncData({ app, params, error }) {
