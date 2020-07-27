@@ -4,7 +4,7 @@
       <responsive-image
         v-if="product.images[0]"
         class="product-card__image"
-        :alt="product.images[0].altText"
+        :alt="product.title"
         :url="product.images[0].originalSrc"
       />
     </n-link>
