@@ -150,7 +150,6 @@ export default {
   flex-direction: column;
 
   &__title {
-    font-size: ms(3);
     margin: 0;
   }
 

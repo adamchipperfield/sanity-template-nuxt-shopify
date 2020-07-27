@@ -10,7 +10,7 @@
     </n-link>
 
     <div class="article-card__footer">
-      <p class="article-card__meta">
+      <p class="article-card__meta meta">
         {{ articlePublished }}
       </p>
 
@@ -80,7 +80,6 @@ export default {
 
   &__meta {
     color: $COLOR_TEXT_LIGHT;
-    font-size: ms(-1);
     margin: 0 0 $SPACING_2XS;
   }
 

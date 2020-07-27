@@ -42,17 +42,17 @@
 
               <p
                 v-if="isTableLoading"
-                class="cart__value cart__value--loading"
+                class="cart__value cart__value--loading meta"
               />
 
-              <p v-else class="cart__value">
+              <p v-else class="cart__value meta">
                 {{ cart.subtotal | formatMoney }}
               </p>
             </div>
 
             <div class="cart__total">
               <p>{{ $t('cart.general.shipping') }}:</p>
-              <p class="cart__value">{{ $t('cart.general.shipping_taxes') }}</p>
+              <p class="cart__value meta">{{ $t('cart.general.shipping_taxes') }}</p>
             </div>
 
             <btn
@@ -165,7 +165,6 @@ export default {
   }
 
   &__value {
-    font-size: ms(-1);
     max-width: 50%;
     text-align: right;
 

@@ -2,9 +2,9 @@
   <div class="product-form">
     <h1 class="product-form__title">{{ product.title }}</h1>
 
-    <p class="product-form__price">
+    <h4 class="product-form__price">
       {{ price.amount | formatMoney(price.currencyCode) }}
-    </p>
+    </h4>
 
     <div
       v-for="(option, index) in product.options"
@@ -148,7 +148,6 @@ export default {
   }
 
   &__price {
-    font-size: ms(1);
     margin: 0 0 $SPACING_L 0;
   }
 }

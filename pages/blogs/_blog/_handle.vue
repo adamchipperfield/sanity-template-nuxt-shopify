@@ -17,7 +17,7 @@
         <div class="col xs12 l8 push-l2">
           <div class="article__header">
             <h1 class="article__title">{{ article.title }}</h1>
-            <p class="article__meta">{{ articlePublished }}</p>
+            <p class="meta">{{ articlePublished }}</p>
           </div>
         </div>
       </div>
@@ -92,10 +92,6 @@ export default {
 
   &__title {
     margin-bottom: 0;
-  }
-
-  &__meta {
-    font-size: ms(-1);
   }
 
   &__body {

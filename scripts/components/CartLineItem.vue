@@ -27,14 +27,14 @@
           {{ lineItem.product.title }}
         </n-link>
 
-        <p class="cart-line-item__variant">{{ lineItem.title }}</p>
+        <p class="cart-line-item__variant meta">{{ lineItem.title }}</p>
 
-        <p class="cart-line-item__price">
+        <p class="cart-line-item__price meta">
           {{ lineItemPrice }} x {{ lineItem.quantity }}
         </p>
 
         <button
-          class="cart-line-item__remove"
+          class="cart-line-item__remove caption"
           :disabled="remove.disabled"
           @click="handleRemoveEvent"
         >
@@ -158,14 +158,12 @@ export default {
 
   &__variant,
   &__price {
-    font-size: ms(-1);
     margin: $SPACING_2XS 0;
   }
 
   &__remove {
     @include button-reset;
     cursor: pointer;
-    font-size: ms(-1);
     margin-top: $SPACING_L;
     text-decoration: underline;
   }

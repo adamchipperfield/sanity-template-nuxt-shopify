@@ -13,7 +13,7 @@
       {{ product.title }}
     </n-link>
 
-    <p class="product-card__price">{{ productPrice }}</p>
+    <p class="product-card__price meta">{{ productPrice }}</p>
   </div>
 </template>
 
@@ -75,7 +75,6 @@ export default {
   }
 
   &__price {
-    font-size: ms(-1);
     margin-top: $SPACING_XS;
   }
 }

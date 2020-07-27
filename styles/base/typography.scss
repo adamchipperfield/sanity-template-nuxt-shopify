@@ -10,6 +10,172 @@ body {
   line-height: $LINE_HEIGHT_BODY;
 }
 
+.d1 {
+  font-family: $FONT_DISPLAY;
+  font-size: ms(3);
+  font-weight: $WEIGHT_BOOK;
+  letter-spacing: $LETTER_SPACING_DISPLAY;
+  line-height: $LINE_HEIGHT_DISPLAY;
+
+  @include mq($from: large) {
+    font-size: ms(7);
+  }
+}
+
+.d2 {
+  font-family: $FONT_DISPLAY;
+  font-size: ms(3);
+  font-weight: $WEIGHT_BOOK;
+  letter-spacing: $LETTER_SPACING_DISPLAY;
+  line-height: $LINE_HEIGHT_DISPLAY;
+
+  @include mq($from: large) {
+    font-size: ms(6);
+  }
+}
+
+.d3 {
+  font-family: $FONT_DISPLAY;
+  font-size: ms(3);
+  font-weight: $WEIGHT_BOOK;
+  letter-spacing: $LETTER_SPACING_DISPLAY;
+  line-height: $LINE_HEIGHT_DISPLAY;
+
+  @include mq($from: large) {
+    font-size: ms(5);
+  }
+}
+
+h1, .h1 {
+  font-family: $FONT_HEADING;
+  font-size: ms(3);
+  font-weight: $WEIGHT_BOOK;
+  letter-spacing: $LETTER_SPACING_HEADING;
+  line-height: $LINE_HEIGHT_HEADING;
+
+  @include mq($from: large) {
+    font-size: ms(4);
+  }
+}
+
+h2, .h2 {
+  font-family: $FONT_HEADING;
+  font-size: ms(2);
+  font-weight: $WEIGHT_BOOK;
+  letter-spacing: $LETTER_SPACING_HEADING;
+  line-height: $LINE_HEIGHT_HEADING;
+
+  @include mq($from: large) {
+    font-size: ms(3)
+  }
+}
+
+h3, .h3 {
+  font-family: $FONT_HEADING;
+  font-size: ms(1);
+  font-weight: $WEIGHT_BOOK;
+  letter-spacing: $LETTER_SPACING_HEADING;
+  line-height: $LINE_HEIGHT_HEADING;
+
+  @include mq($from: large) {
+    font-size: ms(2)
+  }
+}
+
+h4, .h4 {
+  font-family: $FONT_HEADING;
+  font-size: ms(0);
+  font-weight: $WEIGHT_BOOK;
+  letter-spacing: $LETTER_SPACING_HEADING;
+  line-height: $LINE_HEIGHT_HEADING;
+
+  @include mq($from: large) {
+    font-size: ms(1)
+  }
+}
+
+h5, .h5 {
+  font-family: $FONT_HEADING;
+  font-size: ms(0);
+  font-weight: $WEIGHT_BOOK;
+  letter-spacing: $LETTER_SPACING_HEADING;
+  line-height: $LINE_HEIGHT_HEADING;
+
+  @include mq($from: large) {
+    font-size: ms(1)
+  }
+}
+
+h6, .h6 {
+  font-family: $FONT_HEADING;
+  font-size: ms(0);
+  font-weight: $WEIGHT_BOOK;
+  letter-spacing: $LETTER_SPACING_HEADING;
+  line-height: $LINE_HEIGHT_HEADING;
+
+  @include mq($from: large) {
+    font-size: ms(1)
+  }
+}
+
+.subtitle-1 {
+  font-size: ms(-1);
+  font-weight: $WEIGHT_BOLD;
+
+  @include mq($from: large) {
+    font-size: ms(0);
+  }
+}
+
+.subtitle-2 {
+  font-size: ms(-2);
+  font-weight: $WEIGHT_BOLD;
+
+  @include mq($from: large) {
+    font-size: ms(-1);
+  }
+}
+
+p, .body-1 {
+  font-family: $FONT_BODY;
+  font-size: ms(-1);
+  line-height: $LINE_HEIGHT_BODY;
+
+  @include mq($from: large) {
+    font-size: ms(0);
+  }
+}
+
+.body-2 {
+  font-family: $FONT_BODY;
+  font-size: ms(-2);
+  line-height: $LINE_HEIGHT_BODY;
+
+  @include mq($from: large) {
+    font-size: ms(-1);
+  }
+}
+
+caption,
+.caption {
+  font-size: ms(-2);
+}
+
+label,
+.label {
+  font-size: ms(-2);
+  font-weight: $WEIGHT_BOOK;
+  text-transform: uppercase;
+}
+
+.meta {
+  font-size: ms(-2);
+
+  @include mq($from: large) {
+    font-size: ms(-1);
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
