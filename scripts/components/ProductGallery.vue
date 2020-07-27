@@ -7,9 +7,8 @@
           :key="index"
           class="swiper-slide"
         >
-          <img
-            class="lazyload"
-            :data-src="image.originalSrc"
+          <responsive-image
+            :url="image.originalSrc"
             :alt="image.altText"
           />
         </div>
@@ -21,7 +20,13 @@
 <script>
 import Swiper from 'swiper'
 
+import ResponsiveImage from '~/components/ResponsiveImage'
+
 export default {
+  components: {
+    ResponsiveImage
+  },
+
   props: {
     images: {
       type: Array,

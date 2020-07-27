@@ -20,10 +20,7 @@ fragment VariantFragment on ProductVariant {
     handle
   }
   image {
-    transformedSrc(
-      maxHeight: 250
-      maxWidth: 250
-    )
+    originalSrc
     altText
   }
 }

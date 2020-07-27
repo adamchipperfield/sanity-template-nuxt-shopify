@@ -1,10 +1,10 @@
 <template>
   <div class="article-card">
     <n-link :to="articleUrl" class="article-card__thumbnail">
-      <img
+      <responsive-image
         v-if="article.image"
         class="article-card__image"
-        :src="article.image.transformedSrc"
+        :url="article.image.originalSrc"
         :alt="article.image.title"
       />
     </n-link>
@@ -22,7 +22,13 @@
 </template>
 
 <script>
+import ResponsiveImage from '~/components/ResponsiveImage'
+
 export default {
+  components: {
+    ResponsiveImage
+  },
+
   props: {
     article: {
       type: Object,

@@ -11,10 +11,10 @@
 
     <template v-else>
       <div class="cart-line-item__thumbnail">
-        <img
+        <responsive-image
           v-if="lineItem.image"
-          class="cart-line-item__image lazyload"
-          :data-src="lineItem.image.transformedSrc"
+          class="cart-line-item__image"
+          :url="lineItem.image.originalSrc"
           :alt="lineItem.image.altText"
         />
       </div>
@@ -48,7 +48,13 @@
 <script>
 import { mapActions } from 'vuex'
 
+import ResponsiveImage from '~/components/ResponsiveImage'
+
 export default {
+  components: {
+    ResponsiveImage
+  },
+
   props: {
     lineItem: {
       type: Object,

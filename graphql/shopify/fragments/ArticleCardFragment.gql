@@ -3,11 +3,7 @@ fragment ArticleCardFragment on Article {
   handle
   publishedAt
   image {
-    transformedSrc(
-      maxHeight: 416
-      maxWidth: 416
-      crop: CENTER
-    )
+    originalSrc
   }
   blog {
     handle

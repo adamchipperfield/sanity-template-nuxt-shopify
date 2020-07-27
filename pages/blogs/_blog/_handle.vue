@@ -4,9 +4,9 @@
       <div v-if="article.image" class="row">
         <div class="col xs12 l10 push-l1">
           <div class="article__hero">
-            <img
+            <responsive-image
               class="article__image"
-              :src="article.image.transformedSrc"
+              :url="article.image.originalSrc"
               :alt="article.image.title"
             />
           </div>
@@ -36,7 +36,13 @@
 <script>
 import articleByHandleQuery from '@/graphql/shopify/queries/articleByHandleQuery'
 
+import ResponsiveImage from '~/components/ResponsiveImage'
+
 export default {
+  components: {
+    ResponsiveImage
+  },
+
   async asyncData({ app, params, route }) {
     const client = app.apolloProvider.clients.shopify
     const routeParts = route.path.split('/')

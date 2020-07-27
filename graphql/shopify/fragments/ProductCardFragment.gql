@@ -14,10 +14,7 @@ fragment ProductCardFragment on Product {
   images(first: 1) {
     edges {
       node {
-        transformedSrc(
-          maxHeight: 564
-          maxWidth: 470
-        )
+        originalSrc
         altText
       }
     }

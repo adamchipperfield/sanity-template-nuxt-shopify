@@ -1,11 +1,11 @@
 <template>
   <div class="product-card">
     <n-link :to="productUrl" class="product-card__thumbnail">
-      <img
+      <responsive-image
         v-if="product.images[0]"
         class="product-card__image"
-        :src="product.images[0].transformedSrc"
         :alt="product.images[0].altText"
+        :url="product.images[0].originalSrc"
       />
     </n-link>
 
@@ -18,7 +18,13 @@
 </template>
 
 <script>
+import ResponsiveImage from '~/components/ResponsiveImage'
+
 export default {
+  components: {
+    ResponsiveImage
+  },
+
   props: {
     product: {
       type: Object,
@@ -55,6 +61,8 @@ export default {
 
 <style lang="scss">
 .product-card {
+  $parent: &;
+
   &__thumbnail {
     background-color: $COLOR_BACKGROUND_LIGHT;
     display: block;
@@ -71,6 +79,7 @@ export default {
     left: 0;
     position: absolute;
     top: 0;
+    transition: opacity 0.2s ease-out;
     width: 100%;
   }
 
