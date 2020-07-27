@@ -1,13 +1,19 @@
 <template>
   <div class="product-carousel">
-    <div ref="carousel" class="swiper-container">
-      <div class="swiper-wrapper">
-        <div
-          v-for="(product, index) in products"
-          :key="index"
-          class="swiper-slide"
-        >
-          <product-card :product="product" />
+    <div class="container">
+      <div class="row">
+        <div class="col xs12">
+          <div ref="carousel" class="swiper-container">
+            <div class="swiper-wrapper">
+              <div
+                v-for="(product, index) in products"
+                :key="index"
+                class="swiper-slide"
+              >
+                <product-card :product="product" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -42,8 +48,15 @@ export default {
      */
     constructCarousel() {
       this.carousel = new Swiper(this.$refs.carousel, {
-        slidesPerView: 3,
-        spaceBetween: 24
+        centeredSlides: true,
+        slidesPerView: 1.5,
+        spaceBetween: 24,
+        loop: true,
+        breakpoints: {
+          768: {
+            slidesPerView: 3
+          }
+        }
       })
     }
   }
@@ -52,4 +65,12 @@ export default {
 
 <style lang="scss">
 @import '~swiper/css/swiper';
+
+.product-carousel {
+  overflow: hidden;
+
+  .swiper-container {
+    overflow: visible;
+  }
+}
 </style>

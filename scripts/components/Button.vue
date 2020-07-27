@@ -7,11 +7,24 @@
     :to="to"
   >
     {{ label }}
+
+    <span
+      v-if="withArrow"
+      class="button__arrow"
+    >
+      <icon-arrow-right />
+    </span>
   </component>
 </template>
 
 <script>
+import IconArrowRight from '@/assets/icons/direction-arrow-right.svg?inline'
+
 export default {
+  components: {
+    IconArrowRight
+  },
+
   props: {
     url: {
       type: String,
@@ -22,6 +35,14 @@ export default {
       default: ''
     },
     block: {
+      type: Boolean,
+      default: false
+    },
+    withArrow: {
+      type: Boolean,
+      default: false
+    },
+    asText: {
       type: Boolean,
       default: false
     },
@@ -72,7 +93,9 @@ export default {
     classes() {
       return {
         'button--block': this.block,
-        'button--outlined': this.outlined
+        'button--outlined': this.outlined,
+        'button--as-text': this.asText,
+        'button--with-arrow': this.withArrow
       }
     }
   },
@@ -106,6 +129,18 @@ export default {
   justify-content: center;
   transition: all 0.2s ease-out;
 
+  &__arrow {
+    align-items: center;
+    display: flex;
+    margin-left: $SPACING_S;
+    transition: transform 0.2s ease-out;
+
+    .icon {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
   &#{&}--block {
     display: flex;
     width: 100%;
@@ -116,12 +151,31 @@ export default {
     color: $COLOR_BACKGROUND_DARK;
   }
 
-  &:hover {
-    background-color: lighten($COLOR_BACKGROUND_DARK, 10%);
+  &#{&}--with-arrow {
+    justify-content: space-between;
+  }
 
-    &#{$parent}--outlined {
-      background-color: $COLOR_BACKGROUND_DARK;
-      color: $COLOR_TEXT_INVERSE;
+  &#{&}--as-text {
+    color: $COLOR_TEXT_PRIMARY;
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+
+    &:hover {
+      #{$parent}__arrow {
+        transform: translateX(25%);
+      }
+    }
+  }
+
+  &:hover {
+    &:not(#{$parent}--as-text) {
+      background-color: lighten($COLOR_BACKGROUND_DARK, 10%);
+
+      &#{$parent}--outlined {
+        background-color: $COLOR_BACKGROUND_DARK;
+        color: $COLOR_TEXT_INVERSE;
+      }
     }
   }
 }

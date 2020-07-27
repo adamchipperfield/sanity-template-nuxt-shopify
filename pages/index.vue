@@ -1,10 +1,12 @@
 <template>
-  <div class="page-index">
-    <featured-collection
+  <div class="home">
+    <section
       v-for="(collection, index) in collections"
       :key="index"
-      :collection="collection"
-    />
+      class="home__section"
+    >
+      <featured-collection :collection="collection" />
+    </section>
   </div>
 </template>
 
@@ -41,3 +43,15 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.home {
+  @include mq($from: large) {
+    &__section {
+      &:not(:last-child) {
+        margin-bottom: $LAYOUT_S;
+      }
+    }
+  }
+}
+</style>

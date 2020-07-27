@@ -3,22 +3,33 @@
     <div class="container">
       <div class="row">
         <div class="col xs12">
-          <h2 class="product-carousel__title">
-            {{ collection.title }}
-          </h2>
+          <div class="featured-carousel__header">
+            <h2 class="featured-carousel__title">
+              {{ collection.title }}
+            </h2>
 
-          <product-carousel :products="collection.products" />
+            <btn
+              label="View All"
+              :url="`/collections/${collection.handle}`"
+              as-text
+              with-arrow
+            />
+          </div>
         </div>
       </div>
     </div>
+
+    <product-carousel :products="collection.products" />
   </div>
 </template>
 
 <script>
+import Btn from '~/components/Button'
 import ProductCarousel from '~/components/ProductCarousel'
 
 export default {
   components: {
+    Btn,
     ProductCarousel
   },
 
@@ -37,3 +48,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.featured-carousel {
+  &__header {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+</style>
