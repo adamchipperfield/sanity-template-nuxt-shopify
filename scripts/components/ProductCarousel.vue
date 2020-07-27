@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Swiper from 'swiper'
+import { Swiper } from 'swiper'
 
 import ProductCard from '~/components/ProductCard'
 
@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~swiper/css/swiper';
+@import '~swiper/swiper';
 
 .product-carousel {
   overflow: hidden;

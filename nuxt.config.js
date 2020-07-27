@@ -27,6 +27,7 @@ export default {
   },
 
   build: {
+    analyze: true,
     extend(config, { isClient, loaders: { vue } }) {
       config.resolve.alias['~'] = path.join(root, 'scripts')
       config.node = { fs: 'empty' }

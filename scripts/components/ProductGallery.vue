@@ -55,5 +55,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~swiper/css/swiper';
+@import '~swiper/swiper';
 </style>
