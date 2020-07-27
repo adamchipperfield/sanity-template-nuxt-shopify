@@ -5,6 +5,9 @@
     }
   },
   "collections": {
+    "general": {
+      "featured": "Featured Collection"
+    },
     "pagination": {
       "load_more": "Load more"
     }

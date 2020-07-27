@@ -1,4 +1,5 @@
 #import "@/graphql/shopify/fragments/CollectionFragment.gql"
+#import "@/graphql/shopify/fragments/ProductCardFragment.gql"
 
 query collectionByHandleQuery($handle: String!, $cursor: String) {
   collectionByHandle(handle: $handle) {

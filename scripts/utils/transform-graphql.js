@@ -48,7 +48,7 @@ export const transformVariant = ({ presentmentPrices, ...rest }) => {
 export const transformCollection = ({ products, ...rest }) => {
   return {
     products: {
-      pageInfo: products.pageInfo,
+      pageInfo: products && products.pageInfo ? products.pageInfo: {},
       edges: products.edges.map(({ node, ...rest }) => {
         return {
           node: transformProduct(node),

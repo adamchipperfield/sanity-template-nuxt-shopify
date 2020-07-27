@@ -1,5 +1,3 @@
-#import "@/graphql/shopify/fragments/ProductCardFragment.gql"
-
 fragment CollectionFragment on Collection {
   title
   descriptionHtml

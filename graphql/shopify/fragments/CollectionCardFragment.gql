@@ -1,4 +1,13 @@
+#import "@/graphql/shopify/fragments/ProductCardFragment.gql"
+
 fragment CollectionCardFragment on Collection {
   title
   handle
+  products(first: 10) {
+    edges {
+      node {
+        ...ProductCardFragment
+      }
+    }
+  }
 }
