@@ -3,9 +3,17 @@
     <n-link :to="articleUrl" class="article-card__thumbnail">
       <responsive-image
         v-if="article.image"
-        class="article-card__image"
         :url="article.image.originalSrc"
         :alt="article.image.title"
+        :max-height="213"
+        :max-width="305"
+      />
+
+      <responsive-image
+        v-else
+        is-placeholder
+        :max-height="213"
+        :max-width="305"
       />
     </n-link>
 
@@ -63,21 +71,7 @@ export default {
 <style lang="scss">
 .article-card {
   &__thumbnail {
-    background-color: $COLOR_BACKGROUND_LIGHT;
     display: block;
-    overflow: hidden;
-    padding-top: 70%;
-    position: relative;
-    width: 100%;
-  }
-
-  &__image {
-    height: 100%;
-    object-fit: cover;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
   }
 
   &__footer {

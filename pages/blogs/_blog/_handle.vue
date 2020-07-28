@@ -8,6 +8,8 @@
               class="article__image"
               :url="article.image.originalSrc"
               :alt="article.image.title"
+              :max-height="500"
+              :max-width="1064"
             />
           </div>
         </div>

@@ -10,6 +10,8 @@
           <responsive-image
             :url="image.originalSrc"
             :alt="image.altText"
+            :max-height="740"
+            :max-width="740"
           />
         </div>
       </div>

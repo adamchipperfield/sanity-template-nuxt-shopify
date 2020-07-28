@@ -10,14 +10,13 @@
     </template>
 
     <template v-else>
-      <div class="cart-line-item__thumbnail">
-        <responsive-image
-          v-if="lineItem.image"
-          class="cart-line-item__image"
-          :url="lineItem.image.originalSrc"
-          :alt="lineItem.image.altText"
-        />
-      </div>
+      <responsive-image
+        v-if="lineItem.image"
+        :url="lineItem.image.originalSrc"
+        :alt="lineItem.image.altText"
+        :max-height="150"
+        :max-width="125"
+      />
 
       <div class="cart-line-item__body">
         <n-link
@@ -141,20 +140,6 @@ export default {
   &__body {
     flex-grow: 1;
     padding-left: $SPACING_L;
-  }
-
-  &__thumbnail {
-    background-color: $COLOR_BACKGROUND_LIGHT;
-    height: 150px;
-    max-width: 125px;
-    overflow: hidden;
-    width: 100%;
-  }
-
-  &__image {
-    height: 100%;
-    object-fit: cover;
-    width: auto;
   }
 
   &__title {
