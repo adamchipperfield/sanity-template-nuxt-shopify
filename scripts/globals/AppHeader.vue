@@ -19,7 +19,14 @@
                 class="app-header__cart-count"
                 @click.prevent="openCartDrawer"
               >
-                Cart ({{ cartCount }})
+                <span class="visually-hidden">Cart</span>
+                <icon-cart />
+
+                <bubble
+                  v-if="cartCount >= 1"
+                  class="app-header__bubble"
+                  :label="cartCount"
+                />
               </button>
             </div>
           </div>
@@ -32,13 +39,18 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
+import IconCart from '@/assets/icons/misc-cart.svg?inline'
+
 import AppLogo from '~/components/AppLogo'
 import AppNav from '~/components/AppNav'
+import Bubble from '~/components/Bubble'
 
 export default {
   components: {
     AppLogo,
-    AppNav
+    AppNav,
+    Bubble,
+    IconCart
   },
 
   computed: {
@@ -84,6 +96,13 @@ export default {
   &__cart-count {
     @include button-reset;
     cursor: pointer;
+    position: relative;
+  }
+
+  &__bubble {
+    position: absolute;
+    right: -$SPACING_XS;
+    top: -$SPACING_2XS;
   }
 
   &__nav,
