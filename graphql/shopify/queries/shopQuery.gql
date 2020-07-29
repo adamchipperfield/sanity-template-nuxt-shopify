@@ -1,5 +1,6 @@
 query ShopQuery {
   shop {
+    name
     paymentSettings {
       acceptedCardBrands
     }

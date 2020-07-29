@@ -21,6 +21,10 @@
     display: table;
   }
 
+  &.align-center {
+    align-items: center;
+  }
+
   &.no-margin-bottom {
     margin-bottom: 0;
   }

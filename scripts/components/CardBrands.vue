@@ -44,9 +44,12 @@ export default {
 <style lang="scss">
 .card-brands {
   display: flex;
+  margin: 0 -$SPACING_2XS;
 
   &__item {
-    margin: 0 $SPACING_XS;
+    align-items: center;
+    display: flex;
+    margin: 0 $SPACING_2XS;
 
     .icon {
       height: 20px;
