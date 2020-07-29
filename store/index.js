@@ -30,6 +30,8 @@ export const actions = {
    */
   storeHydrated({ commit, dispatch }) {
     commit('SET_HYDRATED')
+
     dispatch('checkout/initCheckout')
+    dispatch('shop/fetchShop')
   }
 }
