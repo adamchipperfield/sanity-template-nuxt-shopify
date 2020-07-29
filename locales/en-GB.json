@@ -4,6 +4,11 @@
       "loading": "Loading"
     }
   },
+  "header": {
+    "a11y": {
+      "toggle_menu_drawer": "Toggle menu drawer"
+    }
+  },
   "collections": {
     "general": {
       "featured": "Featured Collection"

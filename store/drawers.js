@@ -3,6 +3,10 @@ export const state = () => ({
     {
       namespace: 'cart',
       isActive: false
+    },
+    {
+      namespace: 'menu',
+      isActive: false
     }
   ]
 })

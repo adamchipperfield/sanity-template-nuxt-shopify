@@ -5,6 +5,8 @@
     <app-header />
     <nuxt class="layout__main" />
     <app-footer />
+
+    <menu-drawer />
     <cart-drawer />
   </div>
 </template>
@@ -14,6 +16,7 @@ import AppFooter from '~/globals/AppFooter'
 import AppHeader from '~/globals/AppHeader'
 import CartDrawer from '~/globals/CartDrawer'
 import LoadingScreen from '~/globals/LoadingScreen'
+import MenuDrawer from '~/globals/MenuDrawer'
 import WindowOverlay from '~/globals/WindowOverlay'
 
 export default {
@@ -22,6 +25,7 @@ export default {
     AppHeader,
     CartDrawer,
     LoadingScreen,
+    MenuDrawer,
     WindowOverlay
   },
 

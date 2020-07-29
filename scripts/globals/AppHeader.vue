@@ -5,7 +5,15 @@
         <div class="col xs12">
           <div class="app-header__masthead">
             <div class="app-header__nav">
-              <app-nav />
+              <button class="app-header__hamburger" @click="openMenuDrawer">
+                <span class="visually-hidden">
+                  {{ $t('header.a11y.toggle_menu_drawer') }}
+                </span>
+
+                <icon-hamburger />
+              </button>
+
+              <app-nav class="app-header__navigation" />
             </div>
 
             <div class="app-header__logo">
@@ -40,6 +48,7 @@
 import { mapActions, mapGetters } from 'vuex'
 
 import IconCart from '@/assets/icons/misc-cart.svg?inline'
+import IconHamburger from '@/assets/icons/misc-hamburger.svg?inline'
 
 import AppLogo from '~/components/AppLogo'
 import AppNav from '~/components/AppNav'
@@ -50,7 +59,8 @@ export default {
     AppLogo,
     AppNav,
     Bubble,
-    IconCart
+    IconCart,
+    IconHamburger
   },
 
   computed: {
@@ -78,6 +88,14 @@ export default {
       if (this.$route.name !== 'cart') {
         this.openDrawer('cart')
       }
+    },
+
+    /**
+     * Handle drawer open event.
+     * - Opens the menu drawer.
+     */
+    openMenuDrawer() {
+      this.openDrawer('menu')
     }
   }
 }
@@ -91,6 +109,15 @@ export default {
     align-items: center;
     display: flex;
     justify-content: space-between;
+  }
+
+  &__navigation {
+    @include visually-hidden;
+  }
+
+  &__hamburger {
+    @include button-reset;
+    cursor: pointer;
   }
 
   &__cart-count {
@@ -120,6 +147,16 @@ export default {
 
     .app-logo {
       height: 80px;
+    }
+  }
+
+  @include mq($from: medium) {
+    &__navigation {
+      @include visually-shown;
+    }
+
+    &__hamburger {
+      @include visually-hidden;
     }
   }
 }

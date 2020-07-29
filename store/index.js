@@ -1,5 +1,15 @@
 export const state = () => ({
-  hydrated: false
+  hydrated: false,
+  menuItems: [
+    {
+      label: 'Collections',
+      url: '/'
+    },
+    {
+      label: 'Blog',
+      url: '/blogs/news'
+    }
+  ]
 })
 
 export const getters = {
@@ -10,6 +20,15 @@ export const getters = {
    */
   isHydrated({ hydrated }) {
     return hydrated
+  },
+
+  /**
+   * Returns the global menu items.
+   * @param {object} state - The module state.
+   * @returns {array}
+   */
+  getMenuItems({ menuItems }) {
+    return menuItems
   }
 }
 

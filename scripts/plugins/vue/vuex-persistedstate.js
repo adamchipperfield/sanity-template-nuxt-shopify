@@ -8,6 +8,7 @@ export default ({ store }) => {
         const reducer = Object.assign({}, state)
         delete reducer.hydrated
         delete reducer.drawers
+        delete reducer.menuItems
 
         return reducer
       }

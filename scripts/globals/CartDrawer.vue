@@ -159,11 +159,11 @@ export default {
   }
 
   &__header {
-    padding: $SPACING_3XL $SPACING_4XL;
+    padding: $SPACING_3XL $SPACING_2XL;
   }
 
   &__body {
-    padding: 0 $SPACING_4XL;
+    padding: 0 $SPACING_2XL;
   }
 
   &__item {
@@ -171,7 +171,7 @@ export default {
   }
 
   &__footer {
-    padding: $SPACING_XL $SPACING_4XL;
+    padding: $SPACING_XL $SPACING_2XL;
   }
 
   &__total {
@@ -185,6 +185,20 @@ export default {
 
   &__button {
     margin-top: $SPACING_S;
+  }
+
+  @include mq($from: large) {
+    &__header {
+      padding: $SPACING_3XL $SPACING_4XL;
+    }
+
+    &__body {
+      padding: 0 $SPACING_4XL;
+    }
+
+    &__footer {
+      padding: $SPACING_XL $SPACING_4XL;
+    }
   }
 }
 </style>

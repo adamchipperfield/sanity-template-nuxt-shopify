@@ -2,7 +2,7 @@
   <div class="app-nav">
     <ul class="app-nav__menu">
       <li
-        v-for="(item, index) in items"
+        v-for="(item, index) in menuItems"
         :key="index"
         class="app-nav__item"
       >
@@ -15,20 +15,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  data() {
-    return {
-      items: [
-        {
-          label: 'Collections',
-          url: '/'
-        },
-        {
-          label: 'Blog',
-          url: '/blogs/news'
-        }
-      ]
-    }
+  computed: {
+    /**
+     * Maps the Vuex getters.
+     */
+    ...mapGetters({
+      menuItems: 'getMenuItems'
+    })
   }
 }
 </script>
@@ -38,10 +34,6 @@ export default {
   &__menu {
     @include list-reset;
     display: flex;
-  }
-
-  &__item {
-    position: relative;
   }
 
   &__link {
