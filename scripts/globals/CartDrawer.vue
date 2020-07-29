@@ -156,6 +156,11 @@ export default {
   &__main {
     flex-grow: 1;
     overflow-y: auto;
+    scrollbar-width: none;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__header {

@@ -1,5 +1,8 @@
 {
   "general": {
+    "a11y": {
+      "close_drawer": "Close drawer"
+    },
     "states": {
       "loading": "Loading"
     }
