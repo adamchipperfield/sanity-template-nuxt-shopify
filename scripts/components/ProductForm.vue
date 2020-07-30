@@ -6,6 +6,8 @@
       {{ price.amount | formatMoney(price.currencyCode) }}
     </h4>
 
+    <quantity-selector v-model="quantity" />
+
     <div
       v-for="(option, index) in product.options"
       :key="`option-${index}`"
@@ -32,11 +34,13 @@ import { mapActions } from 'vuex'
 
 import Btn from '~/components/Button'
 import SwatchGrid from '~/components/SwatchGrid'
+import QuantitySelector from '~/components/QuantitySelector'
 
 export default {
   components: {
     Btn,
-    SwatchGrid
+    SwatchGrid,
+    QuantitySelector
   },
 
   props: {
@@ -50,6 +54,7 @@ export default {
   data() {
     return {
       isAdding: false,
+      quantity: 1,
       form: {
         options: {}
       }
@@ -132,10 +137,14 @@ export default {
     handleAddToCartEvent() {
       this.isAdding = true
 
-      this.addToCart(this.currentVariant.id).then(() => {
-        this.isAdding = false
-        this.openDrawer('cart')
+      this.addToCart({
+        variantId: this.currentVariant.id,
+        quantity: this.quantity
       })
+        .then(() => {
+          this.isAdding = false
+          this.openDrawer('cart')
+        })
     }
   }
 }
