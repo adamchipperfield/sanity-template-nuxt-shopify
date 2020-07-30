@@ -9,6 +9,17 @@
         <div class="col xs12 l5">
           <div class="product__aside">
             <product-form :product="product" />
+
+            <div
+              v-if="product.descriptionHtml"
+              class="product__description"
+            >
+              <p class="subtitle-2">
+                {{ $t('products.general.description') }}
+              </p>
+
+              <p v-html="product.descriptionHtml" />
+            </div>
           </div>
         </div>
       </div>
@@ -100,6 +111,14 @@ export default {
 
 <style lang="scss">
 .product {
+  &__description {
+    margin-top: $SPACING_2XL;
+
+    p {
+      font-size: ms(-1);
+    }
+  }
+
   @include mq($from: large) {
     &__aside {
       padding: 0 $LAYOUT_S;

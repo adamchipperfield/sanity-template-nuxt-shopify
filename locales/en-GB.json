@@ -21,6 +21,9 @@
     }
   },
   "products": {
+    "general": {
+      "description": "Description"
+    },
     "form": {
       "add_to_cart": "Add to cart",
       "adding_to_cart": "Adding",
