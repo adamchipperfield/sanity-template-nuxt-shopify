@@ -6,8 +6,6 @@
       {{ price.amount | formatMoney(price.currencyCode) }}
     </h4>
 
-    <quantity-selector v-model="quantity" />
-
     <div
       v-for="(option, index) in product.options"
       :key="`option-${index}`"
@@ -18,6 +16,17 @@
         :title="option.name"
         :items="option.values"
         v-model="form.options[option.name]"
+      />
+    </div>
+
+    <div class="product-form__quantity">
+      <label for="ProductQuantity">
+        {{ $t('products.form.quantity') }}
+      </label>
+
+      <quantity-selector
+        namespace="ProductQuantity"
+        v-model="quantity"
       />
     </div>
 
@@ -158,6 +167,15 @@ export default {
 
   &__price {
     margin: 0 0 $SPACING_L 0;
+  }
+
+  &__quantity {
+    margin-bottom: $SPACING_XL;
+
+    label {
+      display: block;
+      margin-bottom: $SPACING_XS;
+    }
   }
 }
 </style>

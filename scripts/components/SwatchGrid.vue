@@ -1,6 +1,6 @@
 <template>
   <div class="swatch-grid">
-    <legend v-if="title" class="swatch-grid__title body-2">
+    <legend v-if="title" class="swatch-grid__title label">
       {{ title }}
     </legend>
 
@@ -63,7 +63,8 @@ export default {
   $parent: &;
 
   &__title {
-    margin-bottom: $SPACING_S;
+    display: block;
+    margin-bottom: $SPACING_XS;
   }
 
   &__items {
@@ -90,6 +91,7 @@ export default {
     border: 1px solid $COLOR_BORDER_DARK;
     cursor: pointer;
     display: flex;
+    font-size: ms(-3);
     justify-content: center;
     height: 42px;
     overflow: hidden;
