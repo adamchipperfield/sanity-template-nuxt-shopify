@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "start": "yarn graphql && sanity start",
+    "build": "sanity build",
+    "graphql": "sanity graphql deploy --playground --force"
+  },
+  "dependencies": {
+    "@sanity/base": "^1.149.18",
+    "@sanity/cli": "^1.149.16",
+    "@sanity/components": "^1.149.18",
+    "@sanity/core": "^1.149.18",
+    "@sanity/default-layout": "^1.149.18",
+    "@sanity/default-login": "^1.149.18",
+    "@sanity/desk-tool": "^1.149.18",
+    "@sanity/vision": "^1.149.16",
+    "prop-types": "^15.6",
+    "react": "^16.2",
+    "react-dom": "^16.2"
+  }
+}
