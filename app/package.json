@@ -1,0 +1,29 @@
+{
+  "scripts": {
+    "export": "nuxt build && nuxt export",
+    "generate": "yarn export --fail-on-error",
+    "build-fragments": "node scripts/plugins/apollo/generate-schema.js",
+    "start": "yarn build-fragments && nuxt dev"
+  },
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.0.0",
+    "core-js": "2",
+    "modularscale-sass": "^3.0.10",
+    "node-sass": "^4.14.1",
+    "nuxt": "^2.13.1",
+    "path": "^0.12.7",
+    "sass-loader": "^8.0.2",
+    "sass-mq": "^5.0.1"
+  },
+  "dependencies": {
+    "@nuxtjs/apollo": "^4.0.1-rc.1",
+    "@nuxtjs/svg": "^0.1.11",
+    "@shopify/theme-images": "^4.0.0",
+    "js-cookie": "^2.2.1",
+    "lazysizes": "^5.1.2",
+    "swiper": "^6.0.4",
+    "vue-async-computed": "^3.8.2",
+    "vue-i18n": "^8.19.0",
+    "vuex-persistedstate": "^3.0.1"
+  }
+}
