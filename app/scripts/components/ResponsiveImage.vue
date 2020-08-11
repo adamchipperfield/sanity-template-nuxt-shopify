@@ -11,15 +11,22 @@
       aria-hidden="true"
     />
 
-    <source :data-srcset="`${url}?w={width}&fm=webp`" type="image/webp" />
-    <source :data-srcset="`${url}?w={width}&fm=jpg`" type="image/jpeg" /> 
+    <source
+      :data-srcset="getSizedImage(url, '{width}', 'webp')"
+      type="image/webp"
+    />
+
+    <source
+      :data-srcset="getSizedImage(url, '{width}', 'jpg')"
+      type="image/jpeg"
+    /> 
 
     <img
       v-if="url"
       class="responsive-image__image lazyload"
       :alt="alt"
       data-sizes="auto"
-      :src="`${url}?w=5`"
+      :src="getSizedImage(url, 5)"
       :style="{
         maxHeight: `${maxHeight}px`,
         maxWidth: `${maxWidth}px`
@@ -29,6 +36,8 @@
 </template>
 
 <script>
+import { getSizedImageUrl } from '@shopify/theme-images'
+
 export default {
   props: {
     url: {
@@ -65,6 +74,23 @@ export default {
         'responsive-image--fit': this.fit === 'fit',
         'responsive-image--fill': this.fit === 'fill'
       }
+    }
+  },
+
+  methods: {
+    /**
+     * Returns the sized image URL.
+     * @param {string} url - The original URL.
+     * @param {number|string} width - The image width.
+     * @param {string} format - The image format.
+     * @returns {string}
+     */
+    getSizedImage(url, width, format) {
+      if (url.includes('cdn.shopify.com')) {
+        return getSizedImageUrl(url, `${width}x`)
+      }
+
+      return `${url}?w=${width}${format ? `&${format}` : ''}`
     }
   }
 }
