@@ -107,7 +107,7 @@ export default {
 
     /**
      * Returns the dynamic product images.
-     * - Defaults to the product gallery.
+     * - Defaults to the product images.
      * - Overidden by the content query.
      * @returns {array}
      */
