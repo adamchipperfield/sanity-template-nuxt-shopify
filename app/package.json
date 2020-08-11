@@ -1,4 +1,5 @@
 {
+  "name": "app",
   "scripts": {
     "export": "nuxt build && nuxt export",
     "generate": "yarn export --fail-on-error",

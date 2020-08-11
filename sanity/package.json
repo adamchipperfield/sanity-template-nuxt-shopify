@@ -1,4 +1,5 @@
 {
+  "name": "sanity",
   "scripts": {
     "start": "yarn graphql && sanity start",
     "build": "sanity build",
