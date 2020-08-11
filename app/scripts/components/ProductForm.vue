@@ -1,6 +1,6 @@
 <template>
   <div class="product-form">
-    <h1 class="product-form__title">{{ product.title }}</h1>
+    <h1 class="product-form__title">{{ productTitle }}</h1>
 
     <h4 class="product-form__price">
       {{ price.amount | formatMoney(price.currencyCode) }}
@@ -57,6 +57,10 @@ export default {
       type: Object,
       required: true,
       default: () => {}
+    },
+    heading: {
+      type: String,
+      default: ''
     }
   },
 
@@ -79,6 +83,16 @@ export default {
       return this.isAdding
         ? this.$t('products.form.adding_to_cart')
         : this.$t('products.form.add_to_cart')
+    },
+
+    /**
+     * Returns the product title.
+     * - Defaults to the product title.
+     * - Can be overidden by the heading prop.
+     * @returns {string}
+     */
+    productTitle() {
+      return this.heading ? this.heading : this.product.title
     },
 
     /**

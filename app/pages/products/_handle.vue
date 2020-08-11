@@ -8,7 +8,10 @@
 
         <div class="col xs12 l5">
           <div class="product__aside">
-            <product-form :product="product" />
+            <product-form
+              :product="product"
+              :heading="content.heading"
+            />
 
             <div
               v-if="product.descriptionHtml"
@@ -31,6 +34,7 @@
 import { mapActions } from 'vuex'
 
 import productByHandleQuery from '@/graphql/shopify/queries/productByHandleQuery'
+import productContentByHandleQuery from '@/graphql/sanity/queries/productContentByHandleQuery'
 
 import { transformProduct } from '~/utils/transform-graphql'
 
@@ -51,7 +55,14 @@ export default {
       }
     })
 
-    if (!product) {
+    const content = await app.apolloProvider.clients.sanity.query({
+      query: productContentByHandleQuery,
+      variables: {
+        handle: params.handle
+      }
+    })
+
+    if (!product || !content) {
       return error({
         statusCode: 404,
         message: 'No product found'
@@ -59,7 +70,8 @@ export default {
     }
 
     return {
-      product: transformProduct(product.data.productByHandle)
+      product: transformProduct(product.data.productByHandle),
+      content: content.data.allProduct[0]
     }
   },
 

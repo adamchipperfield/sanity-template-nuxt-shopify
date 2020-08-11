@@ -24,38 +24,11 @@ export default {
       inputComponent: ShopifyProduct
     },
     {
-      title: 'Images',
-      name: 'images',
-      type: 'array',
-      of: [
-        {
-          type: 'image',
-          fields: [
-            {
-              title: 'Title',
-              name: 'title',
-              type: 'string'
-            }
-          ]
-        }
-      ]
-    },
-    {
       title: 'Description',
       name: 'description',
       type: 'array',
       of: [
         { type: 'block' },
-        {
-          type: 'image',
-          fields: [
-            {
-              title: 'Title',
-              name: 'title',
-              type: 'string'
-            }
-          ]
-        }
       ]
     }
   ]

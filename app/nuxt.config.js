@@ -41,7 +41,8 @@ export default {
 
   apollo: {
     clientConfigs: {
-      shopify: '~/plugins/shopify/client'
+      shopify: '~/plugins/shopify/client',
+      sanity: '~/plugins/sanity/client'
     }
   },
 

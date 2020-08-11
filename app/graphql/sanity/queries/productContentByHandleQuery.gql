@@ -1,0 +1,10 @@
+query productContentByHandleQuery($handle: String!) {
+  allProduct(
+    where: { handle: { eq: $handle } }
+    limit: 1
+  ) {
+    heading
+    handle
+    description: descriptionRaw
+  }
+}
