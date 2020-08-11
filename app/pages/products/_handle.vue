@@ -14,14 +14,14 @@
             />
 
             <div
-              v-if="product.descriptionHtml"
+              v-if="productDescription"
               class="product__description"
             >
               <p class="subtitle-2">
                 {{ $t('products.general.description') }}
               </p>
 
-              <p v-html="product.descriptionHtml" />
+              <p v-html="productDescription" />
             </div>
           </div>
         </div>
@@ -37,6 +37,7 @@ import productByHandleQuery from '@/graphql/shopify/queries/productByHandleQuery
 import productContentByHandleQuery from '@/graphql/sanity/queries/productContentByHandleQuery'
 
 import { transformProduct } from '~/utils/transform-graphql'
+import transformBlocks from '~/plugins/sanity/transform-blocks'
 
 import ProductForm from '~/components/ProductForm'
 import ProductGallery from '~/components/ProductGallery'
@@ -90,6 +91,18 @@ export default {
       return this.isAdding
         ? this.$t('products.form.adding_to_cart')
         : this.$t('products.form.add_to_cart') 
+    },
+
+    /**
+     * Returns the dynamic description HTML.
+     * - Defaults to the product description.
+     * - Overidden by the content description.
+     * @returns {string}
+     */
+    productDescription() {
+      return this.content.description
+        ? transformBlocks(this.content.description)
+        : this.product.descriptionHtml
     }
   },
 
