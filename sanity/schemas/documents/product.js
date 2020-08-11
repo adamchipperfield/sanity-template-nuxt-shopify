@@ -30,6 +30,14 @@ export default {
       of: [
         { type: 'block' },
       ]
+    },
+    {
+      title: 'Images',
+      name: 'images',
+      type: 'array',
+      of: [
+        { type: 'images' }
+      ]
     }
   ]
 }

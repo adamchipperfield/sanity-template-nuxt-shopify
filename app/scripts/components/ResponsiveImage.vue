@@ -1,6 +1,7 @@
 <template>
   <picture
     class="responsive-image"
+    :class="classes"
     :style="{ maxWidth: `${maxWidth}px` }"
   >
     <span
@@ -10,12 +11,15 @@
       aria-hidden="true"
     />
 
+    <source :data-srcset="`${url}?w={width}&fm=webp`" type="image/webp" />
+    <source :data-srcset="`${url}?w={width}&fm=jpg`" type="image/jpeg" /> 
+
     <img
       v-if="url"
       class="responsive-image__image lazyload"
       :alt="alt"
       data-sizes="auto"
-      :data-src="imageSrc"
+      :src="`${url}?w=5`"
       :style="{
         maxHeight: `${maxHeight}px`,
         maxWidth: `${maxWidth}px`
@@ -25,8 +29,6 @@
 </template>
 
 <script>
-import { getSizedImageUrl } from '@shopify/theme-images'
-
 export default {
   props: {
     url: {
@@ -46,16 +48,23 @@ export default {
       type: Number,
       required: true,
       default: 0
+    },
+    fit: {
+      type: String,
+      default: 'cover'
     }
   },
-
   computed: {
     /**
-     * Returns the image URL.
-     * @returns {string}
+     * Returns the classes of the image.
+     * @returns {object}
      */
-    imageSrc() {
-      return getSizedImageUrl(this.url, '{width}x')
+    classes() {
+      return {
+        'responsive-image--contain': this.fit === 'contain',
+        'responsive-image--fit': this.fit === 'fit',
+        'responsive-image--fill': this.fit === 'fill'
+      }
     }
   }
 }
@@ -63,12 +72,12 @@ export default {
 
 <style lang="scss">
 .responsive-image {
+  $parent: &;
   background-color: $COLOR_BACKGROUND_LIGHT;
   display: block;
   overflow: hidden;
   position: relative;
   width: 100%;
-
   &__image {
     height: 100%;
     left: 0;
@@ -76,6 +85,21 @@ export default {
     position: absolute;
     top: 0;
     width: 100%;
+  }
+  &#{&}--contain {
+    #{$parent}__image {
+      object-fit: contain;
+    }
+  }
+  &#{&}--fit {
+    #{$parent}__image {
+      object-fit: fit;
+    }
+  }
+  &#{&}--fill {
+    #{$parent}__image {
+      object-fit: fill;
+    }
   }
 }
 </style>

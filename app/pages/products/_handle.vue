@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col xs12 l7">
-          <product-gallery :images="product.images" />
+          <product-gallery :images="productImages" />
         </div>
 
         <div class="col xs12 l5">
@@ -103,6 +103,30 @@ export default {
       return this.content.description
         ? transformBlocks(this.content.description)
         : this.product.descriptionHtml
+    },
+
+    /**
+     * Returns the dynamic product images.
+     * - Defaults to the product gallery.
+     * - Overidden by the content query.
+     * @returns {array}
+     */
+    productImages() {
+      if (this.content.images) {
+        return this.content.images.map((image) => {
+          return {
+            src: image.asset.url,
+            alt: image.alt
+          }
+        })
+      }
+
+      return this.product.images.map((image) => {
+        return {
+          src: image.originalSrc,
+          alt: image.altText
+        }
+      })
     }
   },
 

@@ -1,1 +1,1 @@
-{"__schema":{"types":[{"kind":"INTERFACE","name":"Document","possibleTypes":[{"name":"Product"},{"name":"ShopifyProduct"},{"name":"ShopifyCollection"},{"name":"SanityImageAsset"},{"name":"SanityFileAsset"}]}]}}
+{"__schema":{"types":[{"kind":"INTERFACE","name":"Document","possibleTypes":[{"name":"Product"},{"name":"SanityImageAsset"},{"name":"SanityFileAsset"}]}]}}

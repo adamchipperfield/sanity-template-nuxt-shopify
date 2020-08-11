@@ -11,8 +11,8 @@
           class="swiper-slide"
         >
           <responsive-image
-            :url="image.originalSrc"
-            :alt="image.altText"
+            :url="image.src"
+            :alt="image.alt"
             :max-height="740"
             :max-width="740"
           />
