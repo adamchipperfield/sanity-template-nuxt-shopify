@@ -13,15 +13,23 @@ export default {
   type: 'document',
   fields: [
     {
+      title: 'Title',
+      name: 'title',
+      type: 'string',
+      description: 'For admin purposes only'
+    },
+    {
       title: 'Heading',
       name: 'heading',
-      type: 'string'
+      type: 'string',
+      description: 'Overrides the Shopify product title'
     },
     {
       title: 'Handle',
       name: 'handle',
       type: 'string',
-      inputComponent: ShopifyProduct
+      inputComponent: ShopifyProduct,
+      validation: (rule) => rule.required()
     },
     {
       title: 'Description',
@@ -29,7 +37,8 @@ export default {
       type: 'array',
       of: [
         { type: 'block' },
-      ]
+      ],
+      description: 'Overrides the Shopify product description'
     },
     {
       title: 'Images',
@@ -37,7 +46,8 @@ export default {
       type: 'array',
       of: [
         { type: 'images' }
-      ]
+      ],
+      description: 'Overrides the Shopify product images'
     }
   ]
 }
