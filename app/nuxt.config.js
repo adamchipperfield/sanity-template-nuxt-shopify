@@ -39,6 +39,10 @@ export default {
     }
   },
 
+  babel: {
+    plugins: ['@babel/plugin-proposal-optional-chaining']
+  },
+
   apollo: {
     clientConfigs: {
       shopify: '~/plugins/shopify/client',

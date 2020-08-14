@@ -7,6 +7,7 @@
     "start": "yarn build-fragments && nuxt dev"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
     "@nuxtjs/style-resources": "^1.0.0",
     "core-js": "2",
     "modularscale-sass": "^3.0.10",

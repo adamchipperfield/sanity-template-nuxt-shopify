@@ -31,7 +31,6 @@ export default class ShopifyCollection extends React.Component {
 
   async componentDidMount() {
     const collections = await client.collection.fetchAll()
-    console.log(collections)
     const transformed = collections.map(({ handle, title }) => {
       return { title, key: handle }
     })

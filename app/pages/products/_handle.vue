@@ -10,7 +10,7 @@
           <div class="product__aside">
             <product-form
               :product="product"
-              :heading="content.heading"
+              :heading="productHeading"
             />
 
             <div
@@ -94,13 +94,25 @@ export default {
     },
 
     /**
+     * Returns the dynamic product heading.
+     * - Defaults to the product title.
+     * - Overidden by the content heading.
+     * @returns {string}
+     */
+    productHeading() {
+      return this.content?.heading
+        ? this.content.heading
+        : this.product.title
+    },
+
+    /**
      * Returns the dynamic description HTML.
      * - Defaults to the product description.
      * - Overidden by the content description.
      * @returns {string}
      */
     productDescription() {
-      return this.content.description
+      return this.content?.description
         ? transformBlocks(this.content.description)
         : this.product.descriptionHtml
     },
@@ -112,7 +124,7 @@ export default {
      * @returns {array}
      */
     productImages() {
-      if (this.content.images) {
+      if (this.content?.images) {
         return this.content.images.map((image) => {
           return {
             src: image.asset.url,

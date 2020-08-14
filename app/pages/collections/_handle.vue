@@ -1,8 +1,8 @@
 <template>
   <div class="collection">
     <hero-banner
-      :title="collection.title"
-      :content="collection.descriptionHtml"
+      :title="collectionHeading"
+      :content="collectionDescription"
     />
     
     <div class="container">
@@ -37,8 +37,10 @@
 
 <script>
 import collectionByHandleQuery from '@/graphql/shopify/queries/collectionByHandleQuery'
+import collectionContentByHandleQuery from '@/graphql/sanity/queries/collectionContentByHandleQuery'
 
 import { transformCollection, transformProduct } from '~/utils/transform-graphql'
+import transformBlocks from '~/plugins/sanity/transform-blocks'
 
 import HeroBanner from '~/components/HeroBanner'
 import ProductCard from '~/components/ProductCard'
@@ -57,7 +59,14 @@ export default {
       }
     })
 
-    if (!collection) {
+    const content = await app.apolloProvider.clients.sanity.query({
+      query: collectionContentByHandleQuery,
+      variables: {
+        handle: params.handle
+      }
+    })
+
+    if (!collection || !content) {
       return error({
         statusCode: 404,
         message: 'No collection found'
@@ -65,7 +74,8 @@ export default {
     }
 
     return {
-      collection: transformCollection(collection.data.collectionByHandle)
+      collection: transformCollection(collection.data.collectionByHandle),
+      content: content.data.allCollection[0]
     }
   },
 
@@ -74,6 +84,32 @@ export default {
       pagination: {
         label: this.$t('collections.pagination.load_more')
       }
+    }
+  },
+
+  computed: {
+    /**
+     * Returns the dynamic collection heading.
+     * - Defaults to the collection title.
+     * - Overidden by the content heading.
+     * @returns {string}
+     */
+    collectionHeading() {
+      return this.content?.heading
+        ? this.content.heading
+        : this.collection.title
+    },
+
+    /**
+     * Returns the dynamic description HTML.
+     * - Defaults to the collection description.
+     * - Overidden by the content description.
+     * @returns {string}
+     */
+    collectionDescription() {
+      return this.content?.description
+        ? transformBlocks(this.content.description)
+        : this.collection.descriptionHtml
     }
   },
 

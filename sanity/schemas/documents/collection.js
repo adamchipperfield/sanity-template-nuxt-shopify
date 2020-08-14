@@ -28,7 +28,17 @@ export default {
       title: 'Handle',
       name: 'handle',
       type: 'string',
-      inputComponent: ShopifyCollection
+      inputComponent: ShopifyCollection,
+      validation: (rule) => rule.required()
+    },
+    {
+      title: 'Description',
+      name: 'description',
+      type: 'array',
+      of: [
+        { type: 'block' },
+      ],
+      description: 'Overrides the Shopify collection description'
     }
   ]
 }

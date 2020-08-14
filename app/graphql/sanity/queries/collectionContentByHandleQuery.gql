@@ -1,0 +1,9 @@
+query collectionContentByHandleQuery($handle: String!) {
+  allCollection(
+    where: { handle: { eq: $handle } }
+    limit: 1
+  ) {
+    heading
+    description: descriptionRaw
+  }
+}
