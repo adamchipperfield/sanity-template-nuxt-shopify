@@ -6,4 +6,8 @@ fragment ImageBannerFragment on ImageBanner {
       url
     }
   }
+  button {
+    label
+    url
+  }
 }

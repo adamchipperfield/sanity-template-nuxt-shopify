@@ -11,6 +11,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import ImageBanner from './objects/image-banner'
 import Images from './objects/images'
+import LinkItem from './objects/link-item'
 
 import Collection from './documents/collection'
 import Product from './documents/product'
@@ -21,6 +22,7 @@ export default createSchema({
     Collection,
     ImageBanner,
     Images,
+    LinkItem,
     Product
   ])
 })

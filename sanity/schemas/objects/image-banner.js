@@ -24,6 +24,11 @@ export default {
       title: 'Image',
       name: 'image',
       type: 'images'
+    },
+    {
+      title: 'Button',
+      name: 'button',
+      type: 'linkItem'
     }
   ]
 }
