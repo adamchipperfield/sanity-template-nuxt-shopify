@@ -17,7 +17,7 @@ const client = Shopify.buildClient({
 })
 
 const createPatchFrom = (value) =>
-  PatchEvent.from(value === '' ? unset() : set(value))
+  PatchEvent.from(value === '' ? unset() : set({ _type: 'slug', current: value }))
 
 export default class ShopifyCollection extends React.Component {
   constructor(props) {
@@ -101,7 +101,7 @@ export default class ShopifyCollection extends React.Component {
           onSearch={this.handleSearch.bind(this)}
           onChange={this.handleChange.bind(this)}
           value={selected}
-          inputValue={selected.key}
+          inputValue={selected.key?.current}
           renderItem={this.renderItem}
         />
       </DefaultFormField>

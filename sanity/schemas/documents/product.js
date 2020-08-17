@@ -27,7 +27,7 @@ export default {
     {
       title: 'Handle',
       name: 'handle',
-      type: 'string',
+      type: 'slug',
       inputComponent: ShopifyProduct,
       validation: (rule) => rule.required()
     },

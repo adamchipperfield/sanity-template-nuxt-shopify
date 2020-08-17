@@ -1,6 +1,6 @@
 query productContentByHandleQuery($handle: String!) {
   allProduct(
-    where: { handle: { eq: $handle } }
+    where: { handle: { current: { eq: $handle } } }
     limit: 1
   ) {
     heading

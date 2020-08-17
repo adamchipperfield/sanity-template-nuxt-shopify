@@ -1,6 +1,6 @@
 query collectionContentByHandleQuery($handle: String!) {
   allCollection(
-    where: { handle: { eq: $handle } }
+    where: { handle: { current: { eq: $handle } } }
     limit: 1
   ) {
     heading
