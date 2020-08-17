@@ -4,13 +4,13 @@
       <div class="row">
         <div class="col xs12">
           <div class="featured-carousel__header">
-            <h2 class="featured-carousel__title">
-              {{ collection.title }}
+            <h2 v-if="section.heading" class="featured-carousel__heading">
+              {{ section.heading }}
             </h2>
 
             <btn
               label="View All"
-              :url="`/collections/${collection.handle}`"
+              :url="`/collections/${section.collection.handle.current}`"
               as-text
               with-arrow
             />
@@ -19,11 +19,15 @@
       </div>
     </div>
 
-    <product-carousel :products="collection.products" />
+    <product-carousel :products="products" />
   </div>
 </template>
 
 <script>
+import featuredCollectionByHandleQuery from '@/graphql/shopify/queries/featuredCollectionByHandleQuery'
+
+import { transformProduct } from '~/utils/transform-graphql'
+
 import Btn from '~/components/Button'
 import ProductCarousel from '~/components/ProductCarousel'
 
@@ -34,15 +38,39 @@ export default {
   },
 
   props: {
-    collection: {
+    section: {
       type: Object,
       required: true,
-      default: () => {
-        return {
-          title: '',
-          handle: '',
-          products: []
+      default: () => ({
+        heading: '',
+        collection: {
+          handle: {
+            current: ''
+          }
         }
+      })
+    }
+  },
+
+  asyncComputed: {
+    /**
+     * Fetches the products from Shopify.
+     * @returns {array}
+     */
+    products: {
+      async get() {
+        const collection = await this.$apolloProvider.clients.shopify.query({
+          query: featuredCollectionByHandleQuery,
+          variables: {
+            handle: this.section.collection.handle.current
+          }
+        })
+
+        return collection.data.collectionByHandle
+          .products.edges.map(({ node }) => transformProduct(node))
+      },
+      default() {
+        return []
       }
     }
   }

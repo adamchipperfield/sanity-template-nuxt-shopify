@@ -26,7 +26,8 @@ export default {
       name: 'sections',
       type: 'array',
       of: [
-        { type: 'imageBanner' }
+        { type: 'imageBanner' },
+        { type: 'featuredCollection' }
       ]
     }
   ]

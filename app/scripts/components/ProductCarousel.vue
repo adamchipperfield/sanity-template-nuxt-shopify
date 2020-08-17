@@ -38,8 +38,20 @@ export default {
     }
   },
 
+  watch: {
+    products(value) {
+      if (value.length > 1) {
+        setTimeout(() => {
+          this.constructCarousel()
+        }, 0)
+      }
+    }
+  },
+
   mounted() {
-    this.constructCarousel()
+    if (this.products.length > 1) {
+      this.constructCarousel()
+    }
   },
 
   methods: {

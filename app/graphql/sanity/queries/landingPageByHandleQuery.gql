@@ -1,4 +1,5 @@
 #import "@/graphql/sanity/fragments/ImageBannerFragment.gql"
+#import "@/graphql/sanity/fragments/FeaturedCollectionFragment.gql"
 
 query landingPageByHandleQuery($handle: String!) {
   allLandingPage(
@@ -7,6 +8,7 @@ query landingPageByHandleQuery($handle: String!) {
   ) {
     sections {
       ...ImageBannerFragment
+      ...FeaturedCollectionFragment
     }
   }
 }

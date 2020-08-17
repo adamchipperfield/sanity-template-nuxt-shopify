@@ -1,0 +1,13 @@
+#import "@/graphql/shopify/fragments/ProductCardFragment.gql"
+
+query featuredCollectionByHandleQuery($handle: String!) {
+  collectionByHandle(handle: $handle) {
+    products(first: 12) {
+      edges {
+        node {
+          ...ProductCardFragment
+        }
+      }
+    }
+  }
+}

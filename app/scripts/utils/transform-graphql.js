@@ -21,7 +21,7 @@ export const transformEdges = ({ edges }) => {
  */
 export const transformProduct = ({ images, variants, presentmentPriceRanges, ...rest }) => {
   return {
-    variants: variants ? variants.edges.map(({ node }) => transformVariant(node)) : [],
+    variants: variants ? variants?.edges.map(({ node }) => transformVariant(node)) : [],
     presentmentPriceRanges: presentmentPriceRanges ? transformEdges(presentmentPriceRanges) : [],
     images: transformEdges(images),
     ...rest
@@ -49,7 +49,7 @@ export const transformCollection = ({ products, ...rest }) => {
   return {
     products: {
       pageInfo: products && products.pageInfo ? products.pageInfo: {},
-      edges: products.edges.map(({ node, ...rest }) => {
+      edges: products?.edges.map(({ node, ...rest }) => {
         return {
           node: transformProduct(node),
           ...rest

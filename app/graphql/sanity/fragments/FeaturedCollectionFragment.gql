@@ -1,0 +1,8 @@
+fragment FeaturedCollectionFragment on FeaturedCollection {
+  heading
+  collection {
+    handle {
+      current
+    }
+  }
+}
