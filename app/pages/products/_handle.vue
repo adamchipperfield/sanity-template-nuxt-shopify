@@ -27,6 +27,11 @@
         </div>
       </div>
     </div>
+
+    <content-sections
+      v-if="content.sections"
+      :sections="content.sections"
+    />
   </div>
 </template>
 
@@ -39,11 +44,13 @@ import productContentByHandleQuery from '@/graphql/sanity/queries/productContent
 import { transformProduct } from '~/utils/transform-graphql'
 import transformBlocks from '~/plugins/sanity/transform-blocks'
 
+import ContentSections from '~/components/ContentSections'
 import ProductForm from '~/components/ProductForm'
 import ProductGallery from '~/components/ProductGallery'
 
 export default {
   components: {
+    ContentSections,
     ProductForm,
     ProductGallery
   },
