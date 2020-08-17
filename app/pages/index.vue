@@ -1,44 +1,34 @@
 <template>
   <div class="home">
-    <section
-      v-for="(collection, index) in collections"
-      :key="index"
-      class="home__section"
-    >
-      <featured-collection :collection="collection" />
-    </section>
+    <content-sections
+      v-if="page.sections"
+      :sections="page.sections"
+    />
   </div>
 </template>
 
 <script>
-import allCollectionsQuery from '@/graphql/shopify/queries/allCollectionsQuery'
+import landingPageByHandleQuery from '@/graphql/sanity/queries/landingPageByHandleQuery'
 
-import { transformEdges, transformProduct } from '~/utils/transform-graphql'
-
-import FeaturedCollection from '~/sections/FeaturedCollection'
+import ContentSections from '~/components/ContentSections'
 
 export default {
   components: {
-    FeaturedCollection
+    ContentSections
   },
 
   async asyncData({ app }) {
-    const client = app.apolloProvider.clients.shopify
+    const client = app.apolloProvider.clients.sanity
 
-    const { data } = await client.query({
-      query: allCollectionsQuery
+    const page = await client.query({
+      query: landingPageByHandleQuery,
+      variables: {
+        handle: '/'
+      }
     })
-
-    const transformedCollections = transformEdges(data.collections)
-      .map(({ products, ...rest }) => {
-        return {
-          products: transformEdges(products).map(transformProduct),
-          ...rest
-        }
-      })
     
     return {
-      collections: transformedCollections
+      page: page.data.allLandingPage[0]
     }
   }
 }

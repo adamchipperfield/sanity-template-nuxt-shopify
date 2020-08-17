@@ -18,12 +18,12 @@
       </div>
     </div>
 
-    <div v-if="section.image" class="image-banner__image">
-      <responsive-image
-        :url="section.image.asset.url"
-        :alt="section.image.alt"
-      />
-    </div>
+    <responsive-image
+      v-if="section.image"
+      class="image-banner__image"
+      :url="section.image.asset.url"
+      :alt="section.image.alt"
+    />
   </div>
 </template>
 
@@ -63,7 +63,7 @@ export default {
   align-items: center;
   background-color: $COLOR_BACKGROUND_LIGHT;
   display: flex;
-  height: 80vh;
+  height: 60vh;
   overflow: hidden;
   padding: $LAYOUT_S 0;
   position: relative;
@@ -86,6 +86,10 @@ export default {
     position: absolute;
     top: 0;
     width: 100%;
+  }
+
+  @include mq($from: large) {
+    height: 80vh;
   }
 }
 </style>

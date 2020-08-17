@@ -47,12 +47,10 @@ export default {
     },
     maxHeight: {
       type: Number,
-      required: true,
       default: 0
     },
     maxWidth: {
       type: Number,
-      required: true,
       default: 0
     },
     fit: {
@@ -135,6 +133,7 @@ export default {
   overflow: hidden;
   position: relative;
   width: 100%;
+
   &__image {
     height: 100%;
     left: 0;
@@ -143,16 +142,19 @@ export default {
     top: 0;
     width: 100%;
   }
+
   &#{&}--contain {
     #{$parent}__image {
       object-fit: contain;
     }
   }
+
   &#{&}--fit {
     #{$parent}__image {
       object-fit: fit;
     }
   }
+
   &#{&}--fill {
     #{$parent}__image {
       object-fit: fill;

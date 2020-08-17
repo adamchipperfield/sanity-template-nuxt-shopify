@@ -14,6 +14,7 @@ import Images from './objects/images'
 import LinkItem from './objects/link-item'
 
 import Collection from './documents/collection'
+import LandingPage from './documents/landing-page'
 import Product from './documents/product'
 
 export default createSchema({
@@ -22,6 +23,7 @@ export default createSchema({
     Collection,
     ImageBanner,
     Images,
+    LandingPage,
     LinkItem,
     Product
   ])

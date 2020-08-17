@@ -1,7 +1,7 @@
 <template>
   <div class="app-header">
     <div class="container">
-      <div class="row">
+      <div class="row no-margin-bottom">
         <div class="col xs12">
           <div class="app-header__masthead">
             <div class="app-header__nav">
@@ -103,7 +103,7 @@ export default {
 
 <style lang="scss">
 .app-header {
-  padding: $SPACING_S 0 0;
+  padding: $SPACING_4XS 0;
 
   &__masthead {
     align-items: center;
@@ -151,6 +151,8 @@ export default {
   }
 
   @include mq($from: medium) {
+    padding: $SPACING_2XS 0;
+
     &__navigation {
       @include visually-shown;
     }
