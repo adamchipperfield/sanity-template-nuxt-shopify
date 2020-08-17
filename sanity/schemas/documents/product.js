@@ -48,6 +48,14 @@ export default {
         { type: 'images' }
       ],
       description: 'Overrides the Shopify product images'
+    },
+    {
+      title: 'Sections',
+      name: 'sections',
+      type: 'array',
+      of: [
+        { type: 'imageBanner' }
+      ]
     }
   ]
 }

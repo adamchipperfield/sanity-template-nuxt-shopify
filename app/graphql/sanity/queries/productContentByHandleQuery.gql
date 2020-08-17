@@ -1,3 +1,5 @@
+#import "@/graphql/sanity/fragments/ImageBannerFragment.gql"
+
 query productContentByHandleQuery($handle: String!) {
   allProduct(
     where: { handle: { current: { eq: $handle } } }
@@ -10,6 +12,9 @@ query productContentByHandleQuery($handle: String!) {
       asset {
         url
       }
+    }
+    sections {
+      ...ImageBannerFragment
     }
   }
 }
