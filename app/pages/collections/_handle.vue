@@ -112,7 +112,6 @@ export default {
 
   watch: {
     sortBy() {
-      console.log('refreshing')
       this.$nuxt.refresh()
     }
   },
