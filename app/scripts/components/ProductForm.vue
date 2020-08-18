@@ -41,6 +41,8 @@
 <script>
 import { mapActions } from 'vuex'
 
+import timings from '~/utils/timings'
+
 import Btn from '~/components/Button'
 import SwatchGrid from '~/components/SwatchGrid'
 import QuantitySelector from '~/components/QuantitySelector'
@@ -165,8 +167,11 @@ export default {
         quantity: this.quantity
       })
         .then(() => {
-          this.isAdding = false
           this.openDrawer('cart')
+
+          setTimeout(() => {
+            this.isAdding = false
+          }, timings.base)
         })
     }
   }
