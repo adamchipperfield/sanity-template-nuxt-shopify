@@ -16,6 +16,7 @@
       type="number"
       class="quantity-selector__input"
       :id="namespace"
+      readonly
     />
 
     <button
