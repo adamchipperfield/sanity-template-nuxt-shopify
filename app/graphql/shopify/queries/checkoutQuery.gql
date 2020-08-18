@@ -1,0 +1,11 @@
+query($checkoutId: ID!) {
+  node(id: $checkoutId) {
+    ... on Checkout {
+      completedAt
+      webUrl
+      lineItemsSubtotalPrice {
+        amount
+      }
+    }
+  }
+}

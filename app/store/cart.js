@@ -66,6 +66,18 @@ export const mutations = {
     Cookies.set(
       'line_items', !!state.lineItems.length
     )
+  },
+
+  /**
+   * Clears all line items from the state.
+   * @param {object} state - The module state.
+   */
+  CLEAR_LINE_ITEMS(state) {
+    state.lineItems = []
+
+    Cookies.set(
+      'line_items', false
+    )
   }
 }
 
@@ -102,6 +114,14 @@ export const actions = {
           resolve()
         })
     })
+  },
+
+  /**
+   * Clears the cart.
+   * @param {object} store - The module store.
+   */
+  clearCart({ commit }) {
+    commit('CLEAR_LINE_ITEMS')
   },
 
   /**
