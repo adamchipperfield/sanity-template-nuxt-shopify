@@ -18,12 +18,16 @@
       </div>
     </div>
 
-    <responsive-image
+    <div
       v-if="section.image"
-      class="image-banner__image"
-      :url="section.image.asset.url"
-      :alt="section.image.alt"
-    />
+      class="image-banner__image-container"
+    >
+      <responsive-image
+        class="image-banner__image"
+        :url="section.image.asset.url"
+        :alt="section.image.alt"
+      />
+    </div>
   </div>
 </template>
 
@@ -79,12 +83,18 @@ export default {
     color: $COLOR_TEXT_INVERSE;
   }
 
-  &__image {
+  &__image-container {
     height: 100%;
     left: 0;
     object-fit: cover;
     position: absolute;
     top: 0;
+    width: 100%;
+  }
+
+  &__image {
+    height: 100%;
+    object-fit: cover;
     width: 100%;
   }
 
