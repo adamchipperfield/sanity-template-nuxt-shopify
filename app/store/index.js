@@ -47,10 +47,10 @@ export const actions = {
    * Handles the rehydrated store state.
    * @param {object} store - The module store.
    */
-  storeHydrated({ commit, dispatch }) {
+  async storeHydrated({ commit, dispatch }) {
+    await dispatch('checkout/initCheckout')
+    await dispatch('shop/fetchShop')
+    
     commit('SET_HYDRATED')
-
-    dispatch('checkout/initCheckout')
-    dispatch('shop/fetchShop')
   }
 }

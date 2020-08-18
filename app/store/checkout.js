@@ -1,5 +1,6 @@
 import checkoutCreateMutation from '@/graphql/shopify/mutations/checkoutCreateMutation'
 import checkoutLineItemsReplaceMutation from '@/graphql/shopify/mutations/checkoutLineItemsReplaceMutation'
+import checkoutQuery from '@/graphql/shopify/queries/checkoutQuery'
 
 export const state = () => ({
   node: {
@@ -34,10 +35,43 @@ export const actions = {
   /**
    * Initiates the checkout.
    */
-  initCheckout({ dispatch }) {
-    setTimeout(() => {
-      dispatch('createCheckout', this.getters['cart/getLineItems'] || [])
-    }, 250)
+  async initCheckout({ dispatch }) {
+    const checkoutIsCompleted = await dispatch('isCheckoutCompleted')
+
+    if (checkoutIsCompleted) {
+      dispatch('cart/clearCart', {}, { root: true })
+      dispatch('createCheckout', [])
+      return
+    }
+  },
+
+  /**
+   * Returns if the current checkout is completed.
+   * @param {object} store - The module store.
+   * @returns {boolean}
+   */
+  isCheckoutCompleted({ state }) {
+    const client = this.app.apolloProvider.clients.shopify
+
+    if (!state.node.id) {
+      return true
+    }
+
+    return client.query({
+      query: checkoutQuery,
+      variables: {
+        checkoutId: state.node.id
+      }
+    })
+      .then(({ data }) => {
+        return !!data.node.completedAt
+      })
+      .catch(({ graphQLErrors }) => {
+        return (
+          graphQLErrors &&
+          graphQLErrors[0].message === 'Checkout is already completed.'
+        )
+      })
   },
 
   /**
