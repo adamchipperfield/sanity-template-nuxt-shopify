@@ -9,7 +9,9 @@
       <div class="row">
         <div class="col xs12">
           <div class="collection__toolbar">
-            <collection-sort />
+            <div class="collection__sort-by">
+              <collection-sort />
+            </div>
           </div>
 
           <div class="collection__grid">
@@ -161,6 +163,10 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 0 0 $SPACING_XL 0;
+  }
+
+  &__sort-by {
+    margin-left: auto;
   }
 
   &__grid {
