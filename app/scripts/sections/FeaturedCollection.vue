@@ -84,5 +84,9 @@ export default {
     display: flex;
     justify-content: space-between;
   }
+
+  &__heading {
+    margin-top: 0;
+  }
 }
 </style>

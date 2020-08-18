@@ -1,7 +1,7 @@
 <template>
   <div class="product-carousel">
     <div class="container">
-      <div class="row">
+      <div class="row no-margin-bottom">
         <div class="col xs12">
           <div ref="carousel" class="swiper-container">
             <div class="swiper-wrapper">
