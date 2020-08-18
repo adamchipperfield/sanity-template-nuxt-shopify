@@ -4,6 +4,10 @@
       class="quantity-selector__control"
       @click="decreaseQuantity"
     >
+      <span class="visually-hidden">
+        {{ $t('general.a11y.decrement') }}
+      </span>
+
       <icon-minus />
     </button>
 
@@ -18,6 +22,10 @@
       class="quantity-selector__control"
       @click="increaseQuantity"
     >
+      <span class="visually-hidden">
+        {{ $t('general.a11y.increment') }}
+      </span>
+
       <icon-plus />
     </button>
   </div>
