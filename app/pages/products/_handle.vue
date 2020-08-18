@@ -135,7 +135,7 @@ export default {
         return this.content.images.map((image) => {
           return {
             src: image.asset.url,
-            alt: image.alt
+            alt: image.alt ? image.alt : this.productHeading
           }
         })
       }
@@ -143,7 +143,7 @@ export default {
       return this.product.images.map((image) => {
         return {
           src: image.originalSrc,
-          alt: image.altText
+          alt: image.altText ? image.altText : this.productHeading
         }
       })
     }
