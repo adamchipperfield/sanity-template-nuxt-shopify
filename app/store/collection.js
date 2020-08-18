@@ -1,14 +1,27 @@
 export const state = () => ({
   sortBy: {
-    selected: 'featured',
+    selected: 'price-desc',
     options: [
       {
         label: 'Featured',
-        value: 'featured'
+        id: 'featured',
+        key: 'MANUAL'
       },
       {
         label: 'Best Selling',
-        value: 'best-selling'
+        id: 'best-selling',
+        key: 'BEST_SELLING'
+      },
+      {
+        label: 'Price: Low to High',
+        id: 'price-asc',
+        key: 'PRICE'
+      },
+      {
+        label: 'Price: High to Low',
+        id: 'price-desc',
+        key: 'PRICE',
+        reverse: true
       }
     ]
   }

@@ -40,10 +40,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import collectionByHandleQuery from '@/graphql/shopify/queries/collectionByHandleQuery'
 import collectionContentByHandleQuery from '@/graphql/sanity/queries/collectionContentByHandleQuery'
 
-import { transformCollection, transformProduct } from '~/utils/transform-graphql'
+import fetchCollection from '~/utils/fetch-collection'
+import { transformProduct } from '~/utils/transform-graphql'
 import transformBlocks from '~/plugins/sanity/transform-blocks'
 
 import HeroBanner from '~/components/HeroBanner'
@@ -57,31 +60,12 @@ export default {
     ProductCard
   },
 
-  async asyncData({ app, params, error }) {
-    const collection = await app.apolloProvider.clients.shopify.query({
-      query: collectionByHandleQuery,
-      variables: {
-        handle: params.handle
-      }
-    })
-
-    const content = await app.apolloProvider.clients.sanity.query({
-      query: collectionContentByHandleQuery,
-      variables: {
-        handle: params.handle
-      }
-    })
-
-    if (!collection || !content) {
-      return error({
-        statusCode: 404,
-        message: 'No collection found'
-      })
-    }
+  async asyncData(context) {
+    const { collection, content } = await fetchCollection(context)
 
     return {
-      collection: transformCollection(collection.data.collectionByHandle),
-      content: content.data.allCollection[0]
+      collection,
+      content
     }
   },
 
@@ -94,6 +78,13 @@ export default {
   },
 
   computed: {
+    /**
+     * Maps the Vuex getters.
+     */
+    ...mapGetters({
+      sortBy: 'collection/getSortBySelected'
+    }),
+
     /**
      * Returns the dynamic collection heading.
      * - Defaults to the collection title.
@@ -116,6 +107,13 @@ export default {
       return this.content?.description
         ? transformBlocks(this.content.description)
         : this.collection.descriptionHtml
+    }
+  },
+
+  watch: {
+    sortBy() {
+      console.log('refreshing')
+      this.$nuxt.refresh()
     }
   },
 

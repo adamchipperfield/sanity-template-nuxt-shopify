@@ -4,8 +4,8 @@
       <option
         v-for="(option, index) in options"
         :key="index"
-        :value="option.value"
-        :selected="option.value === selected"
+        :value="option.id"
+        :selected="option.id === selected"
       >
         {{ option.label }}
       </option>
