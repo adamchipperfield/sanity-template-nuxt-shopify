@@ -9,6 +9,7 @@ export default ({ store }) => {
         delete reducer.hydrated
         delete reducer.drawers
         delete reducer.menuItems
+        delete reducer.collection
 
         return reducer
       }

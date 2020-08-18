@@ -8,6 +8,10 @@
     <div class="container">
       <div class="row">
         <div class="col xs12">
+          <div class="collection__toolbar">
+            <collection-sort />
+          </div>
+
           <div class="collection__grid">
             <div
               v-for="(product, index) in collection.products.edges"
@@ -44,9 +48,11 @@ import transformBlocks from '~/plugins/sanity/transform-blocks'
 
 import HeroBanner from '~/components/HeroBanner'
 import ProductCard from '~/components/ProductCard'
+import CollectionSort from '~/components/CollectionSort'
 
 export default {
   components: {
+    CollectionSort,
     HeroBanner,
     ProductCard
   },
@@ -154,6 +160,12 @@ export default {
 
 <style lang="scss">
 .collection {
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 $SPACING_XL 0;
+  }
+
   &__grid {
     display: grid;
     grid-gap: $SPACING_L;
