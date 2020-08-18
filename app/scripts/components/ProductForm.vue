@@ -2,9 +2,9 @@
   <div class="product-form">
     <h1 class="product-form__title">{{ productTitle }}</h1>
 
-    <h4 class="product-form__price">
+    <h2 class="product-form__price h4">
       {{ price.amount | formatMoney(price.currencyCode) }}
-    </h4>
+    </h2>
 
     <div
       v-for="(option, index) in product.options"
