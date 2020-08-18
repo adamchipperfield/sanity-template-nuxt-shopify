@@ -119,7 +119,7 @@ export default {
         return getSizedImageUrl(url, `${width}x`)
       }
 
-      return `${url}?w=${width}${format ? `&${format}` : ''}`
+      return `${url}?w=${width}${format ? `&fm=${format}` : ''}`
     }
   }
 }
