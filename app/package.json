@@ -8,6 +8,7 @@
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",
     "core-js": "2",
+    "graphql-request": "^3.0.0",
     "modularscale-sass": "^3.0.10",
     "node-sass": "^4.14.1",
     "nuxt": "^2.13.1",
