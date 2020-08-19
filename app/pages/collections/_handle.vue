@@ -63,12 +63,7 @@ export default {
   },
 
   async asyncData(context) {
-    const { collection, content } = await fetchCollection(context)
-
-    return {
-      collection,
-      content
-    }
+    return await fetchCollection(context)
   },
 
   data() {

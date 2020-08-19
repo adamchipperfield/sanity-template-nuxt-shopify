@@ -11,6 +11,7 @@ import collectionContentByHandleQuery from '@/graphql/sanity/queries/collectionC
 import { transformCollection } from '~/utils/transform-graphql'
 
 export default async (context) => {
+  const page = {}
   const sortByOptions = context.store.getters['collection/getSortByOptions']
   const sortBySelected = context.store.getters['collection/getSortBySelected']
   const sortBy = sortByOptions.find(({ id }) => id === sortBySelected)
@@ -31,15 +32,18 @@ export default async (context) => {
     }
   })
 
-  if (!collection || !content) {
+  if (!collection) {
     return context?.error({
       statusCode: 404,
       message: 'No collection found'
     })
   }
 
-  return {
-    collection: transformCollection(collection.data.collectionByHandle),
-    content: content.data.allCollection[0]
+  page.collection = transformCollection(collection.data.collectionByHandle)
+
+  if (content) {
+    page.content = content.data.allCollection[0]
   }
+
+  return page
 }

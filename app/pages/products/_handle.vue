@@ -38,11 +38,8 @@
 <script>
 import { mapActions } from 'vuex'
 
-import productByHandleQuery from '@/graphql/shopify/queries/productByHandleQuery'
-import productContentByHandleQuery from '@/graphql/sanity/queries/productContentByHandleQuery'
-
-import { transformProduct } from '~/utils/transform-graphql'
 import transformBlocks from '~/plugins/sanity/transform-blocks'
+import fetchProduct from '~/utils/fetch-product'
 
 import ContentSections from '~/components/ContentSections'
 import ProductForm from '~/components/ProductForm'
@@ -55,32 +52,8 @@ export default {
     ProductGallery
   },
 
-  async asyncData({ app, params, error }) {
-    const product = await app.apolloProvider.clients.shopify.query({
-      query: productByHandleQuery,
-      variables: {
-        handle: params.handle
-      }
-    })
-
-    const content = await app.apolloProvider.clients.sanity.query({
-      query: productContentByHandleQuery,
-      variables: {
-        handle: params.handle
-      }
-    })
-
-    if (!product || !content) {
-      return error({
-        statusCode: 404,
-        message: 'No product found'
-      })
-    }
-
-    return {
-      product: transformProduct(product.data.productByHandle),
-      content: content.data.allProduct[0]
-    }
+  async asyncData(context) {
+    return await fetchProduct(context)
   },
 
   data() {
