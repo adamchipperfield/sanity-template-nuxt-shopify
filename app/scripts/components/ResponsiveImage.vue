@@ -92,6 +92,7 @@ export default {
      */
     imgStyles() {
       const styles = {}
+
       if (this.maxHeight) {
         styles.maxHeight = `${this.maxHeight}px`
       }
