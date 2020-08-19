@@ -67,7 +67,6 @@ export default {
   &__thumbnail {
     display: block;
     margin-bottom: $SPACING_M;
-    position: relative;
 
     &:empty {
       max-height: 492px;
