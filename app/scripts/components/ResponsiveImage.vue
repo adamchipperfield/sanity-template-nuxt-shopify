@@ -2,7 +2,7 @@
   <picture
     class="responsive-image"
     :class="classes"
-    :style="{ maxWidth: `${maxWidth}px` }"
+    :style="styles"
   >
     <span
       :style="{
@@ -27,10 +27,7 @@
       :alt="alt"
       data-sizes="auto"
       :src="getSizedImage(url, 5)"
-      :style="{
-        maxHeight: `${maxHeight}px`,
-        maxWidth: `${maxWidth}px`
-      }"
+      :style="imgStyles"
     />
   </picture>
 </template>
@@ -52,13 +49,11 @@ export default {
 
     maxHeight: {
       type: Number,
-      required: true,
       default: 0
     },
 
     maxWidth: {
       type: Number,
-      required: true,
       default: 0
     },
 
@@ -79,6 +74,38 @@ export default {
         'responsive-image--fit': this.fit === 'fit',
         'responsive-image--fill': this.fit === 'fill'
       }
+    },
+
+    /**
+     * Returns the styles for the component.
+     * @returns {object}
+     */
+    styles() {
+      if (this.maxWidth) {
+        return { maxWidth: `${this.maxWidth}px` }
+      }
+    },
+
+    /**
+     * Returns dynamic styles for the image element.
+     * @returns {object}
+     */
+    imgStyles() {
+      const styles = {}
+      if (this.maxHeight) {
+        styles.maxHeight = `${this.maxHeight}px`
+      }
+
+      if (this.maxWidth) {
+        styles.maxWidth = `${this.maxWidth}px`
+      }
+
+      if (!this.maxHeight && !this.maxWidth) {
+        styles.position = 'relative'
+        styles.display = 'block'
+      }
+
+      return styles
     }
   },
 
