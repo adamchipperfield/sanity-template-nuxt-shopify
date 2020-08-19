@@ -32,7 +32,7 @@ import { mapActions } from 'vuex'
 
 import productByHandleQuery from '@/graphql/shopify/queries/productByHandleQuery'
 
-import { transformProduct } from '~/utils/transform-graphql'
+import fetchProduct from '~/utils/fetch-product'
 
 import ProductForm from '~/components/ProductForm'
 import ProductGallery from '~/components/ProductGallery'
@@ -43,24 +43,8 @@ export default {
     ProductGallery
   },
 
-  async asyncData({ app, params, error }) {
-    const product = await app.apolloProvider.clients.shopify.query({
-      query: productByHandleQuery,
-      variables: {
-        handle: params.handle
-      }
-    })
-
-    if (!product) {
-      return error({
-        statusCode: 404,
-        message: 'No product found'
-      })
-    }
-
-    return {
-      product: transformProduct(product.data.productByHandle)
-    }
+  async asyncData(context) {
+    return await fetchProduct(context)
   },
 
   data() {

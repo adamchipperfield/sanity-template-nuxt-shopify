@@ -67,6 +67,19 @@ export default {
   &__thumbnail {
     display: block;
     margin-bottom: $SPACING_M;
+
+    &:empty {
+      max-height: 492px;
+      max-width: 410px;
+
+      &::before {
+        background-color: $COLOR_BACKGROUND_LIGHT;
+        content: '';
+        display: block;
+        padding-top: 120%;
+        width: 100%;
+      }
+    }
   }
 
   &__price {
