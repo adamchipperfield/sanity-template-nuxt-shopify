@@ -41,18 +41,22 @@ export default {
       type: String,
       default: ''
     },
+
     alt: {
       type: String,
       default: ''
     },
+
     maxHeight: {
       type: Number,
       default: 0
     },
+
     maxWidth: {
       type: Number,
       default: 0
     },
+
     fit: {
       type: String,
       default: 'cover'
