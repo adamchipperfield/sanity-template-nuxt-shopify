@@ -8,6 +8,12 @@
     <div class="container">
       <div class="row">
         <div class="col xs12">
+          <div class="collection__toolbar">
+            <div class="collection__sort-by">
+              <collection-sort />
+            </div>
+          </div>
+
           <div class="collection__grid">
             <div
               v-for="(product, index) in collection.products.edges"
@@ -36,37 +42,26 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import collectionByHandleQuery from '@/graphql/shopify/queries/collectionByHandleQuery'
 
-import { transformCollection, transformProduct } from '~/utils/transform-graphql'
+import fetchCollection from '~/utils/fetch-collection'
+import { transformProduct } from '~/utils/transform-graphql'
 
 import HeroBanner from '~/components/HeroBanner'
 import ProductCard from '~/components/ProductCard'
+import CollectionSort from '~/components/CollectionSort'
 
 export default {
   components: {
+    CollectionSort,
     HeroBanner,
     ProductCard
   },
 
-  async asyncData({ app, params, error }) {
-    const collection = await app.apolloProvider.clients.shopify.query({
-      query: collectionByHandleQuery,
-      variables: {
-        handle: params.handle
-      }
-    })
-
-    if (!collection) {
-      return error({
-        statusCode: 404,
-        message: 'No collection found'
-      })
-    }
-
-    return {
-      collection: transformCollection(collection.data.collectionByHandle)
-    }
+  async asyncData(context) {
+    return await fetchCollection(context)
   },
 
   data() {
@@ -74,6 +69,21 @@ export default {
       pagination: {
         label: this.$t('collections.pagination.load_more')
       }
+    }
+  },
+
+  computed: {
+    /**
+     * Maps the Vuex getters.
+     */
+    ...mapGetters({
+      sortBy: 'collection/getSortBySelected'
+    })
+  },
+
+  watch: {
+    sortBy() {
+      this.$nuxt.refresh()
     }
   },
 
@@ -118,6 +128,16 @@ export default {
 
 <style lang="scss">
 .collection {
+  &__toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 $SPACING_XL 0;
+  }
+
+  &__sort-by {
+    margin-left: auto;
+  }
+
   &__grid {
     display: grid;
     grid-gap: $SPACING_L;

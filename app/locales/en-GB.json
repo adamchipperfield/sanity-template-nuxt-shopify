@@ -1,7 +1,9 @@
 {
   "general": {
     "a11y": {
-      "close_drawer": "Close drawer"
+      "close_drawer": "Close drawer",
+      "decrement": "Decrement",
+      "increment": "Increment"
     },
     "states": {
       "loading": "Loading"

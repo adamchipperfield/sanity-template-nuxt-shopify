@@ -1,10 +1,20 @@
 #import "@/graphql/shopify/fragments/CollectionFragment.gql"
 #import "@/graphql/shopify/fragments/ProductCardFragment.gql"
 
-query collectionByHandleQuery($handle: String!, $cursor: String) {
+query collectionByHandleQuery(
+  $handle: String!
+  $cursor: String
+  $sortKey: ProductCollectionSortKeys,
+  $reverse: Boolean
+) {
   collectionByHandle(handle: $handle) {
     ...CollectionFragment
-    products(first: 24, after: $cursor) {
+    products(
+      first: 24
+      after: $cursor
+      sortKey: $sortKey
+      reverse: $reverse
+    ) {
       pageInfo {
         hasNextPage
       }

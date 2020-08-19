@@ -1,0 +1,51 @@
+/**
+ * Styles / Base / Forms
+ * -----------------------------------------------------------------------------
+ * Sets the base styles for form elements.
+ */
+.form {
+  &__field {
+    margin-bottom: $SPACING_L;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: $SPACING_XS;
+  }
+
+  &__message {
+    &#{&}--error {
+      color: $COLOR_SUPPORT_ERROR;
+    }
+
+    &#{&}--success {
+      color: $COLOR_SUPPORT_SUCCESS;
+    }
+  }
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=tel],
+textarea,
+select {
+  background-color: $COLOR_BACKGROUND_WHITE;
+  border: 1px solid $COLOR_BORDER_DARK;
+  border-radius: 5px;
+  display: block;
+  font-size: ms(0);
+  min-height: 42px;
+  padding: $SPACING_S $SPACING_M;
+  width: 100%;
+}
+
+select {
+  appearance: none;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTUgOGw1IDUgNS01eiIgZmlsbD0iIzIxMkIzNiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+Cg==);
+  background-position: calc(100% - #{$SPACING_M}) center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding-right: $SPACING_5XL;
+}

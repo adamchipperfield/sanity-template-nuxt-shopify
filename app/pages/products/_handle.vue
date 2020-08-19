@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col xs12 l7">
-          <product-gallery :images="product.images" />
+          <product-gallery :images="productImages" />
         </div>
 
         <div class="col xs12 l5">
@@ -78,6 +78,21 @@ export default {
       return this.isAdding
         ? this.$t('products.form.adding_to_cart')
         : this.$t('products.form.add_to_cart') 
+    },
+
+    /**
+     * Returns the dynamic product images.
+     * - Defaults to the product images.
+     * - Overidden by the content query.
+     * @returns {array}
+     */
+    productImages() {
+      return this.product.images.map((image) => {
+        return {
+          src: image.originalSrc,
+          alt: image.altText ? image.altText : this.product.title
+        }
+      })
     }
   },
 
