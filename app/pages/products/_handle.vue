@@ -30,8 +30,6 @@
 <script>
 import { mapActions } from 'vuex'
 
-import productByHandleQuery from '@/graphql/shopify/queries/productByHandleQuery'
-
 import fetchProduct from '~/utils/fetch-product'
 
 import ProductForm from '~/components/ProductForm'
