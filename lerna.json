@@ -1,7 +1,7 @@
 {
-  "version": "0.0.0",
   "packages": [
     "app",
     "sanity"
-  ]
+  ],
+  "version": "0.0.0"
 }
