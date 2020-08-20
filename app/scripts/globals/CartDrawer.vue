@@ -7,12 +7,12 @@
             {{ $t('cart.general.title') }}
           </h3>
 
-          <p v-if="cart.lineItems.length <= 0">
+          <p v-if="getLineItems.length <= 0">
             {{ $t('cart.general.empty') }}
           </p>
         </div>
 
-        <div v-if="cart.lineItems.length" class="cart-drawer__body">
+        <div v-if="getLineItems.length" class="cart-drawer__body">
           <template v-if="isDrawerLoading">
             <div
               v-for="(item) in getLineItems"
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <div v-if="cart.lineItems.length" class="cart-drawer__footer">
+      <div v-if="getLineItems.length" class="cart-drawer__footer">
         <div class="cart-drawer__total">
           <p>{{ $t('cart.general.subtotal') }}:</p>
           <p class="cart-drawer__value">{{ cart.subtotal | formatMoney }}</p>
@@ -137,7 +137,9 @@ export default {
 
   watch: {
     async getLineItems() {
-      this.handleDrawerOpen()
+      if (this.drawer.isActive) {
+        this.handleDrawerOpen()
+      }
     }
   }
 }
