@@ -160,6 +160,13 @@ export default {
   }
 
   &.is-loading {
+    #{$parent}__thumbnail {
+      background-color: $COLOR_BACKGROUND_LIGHT;
+      border-radius: 5px;
+      height: 150px;
+      width: 125px;
+    }
+
     #{$parent}__title {
       background-color: $COLOR_BACKGROUND_LIGHT;
       border-radius: 5px;
