@@ -23,7 +23,8 @@ export default async () => {
       { src: '~/scripts/plugins/vue/vue-async-computed' },
       { src: '~/scripts/plugins/vue/i18n' },
       { src: '~/scripts/plugins/vue/filters' },
-      { src: '~/scripts/plugins/vue/lazysizes', mode: 'client' }
+      { src: '~/scripts/plugins/vue/lazysizes', mode: 'client' },
+      { src: '~/scripts/plugins/vue/localize' }
     ],
   
     styleResources: {

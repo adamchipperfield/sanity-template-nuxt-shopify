@@ -28,7 +28,7 @@ export default {
     }
   ],
   fields: locales.map((locale) => (
-      {
+    {
       title: locale.title,
       name: locale.iso_code.toLowerCase().replace('-', ''),
       type: 'string',

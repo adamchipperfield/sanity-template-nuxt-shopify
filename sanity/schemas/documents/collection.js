@@ -21,7 +21,7 @@ export default {
     {
       title: 'Heading',
       name: 'heading',
-      type: 'string',
+      type: 'localized',
       description: 'Overrides the Shopify collection title',
     },
     {
