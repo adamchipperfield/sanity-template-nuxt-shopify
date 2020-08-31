@@ -14,6 +14,8 @@ import ImageBanner from './objects/image-banner'
 import Images from './objects/images'
 import LinkItem from './objects/link-item'
 
+import Article from './documents/Article'
+import Blog from './documents/blog'
 import Collection from './documents/collection'
 import LandingPage from './documents/landing-page'
 import Product from './documents/product'
@@ -21,6 +23,8 @@ import Product from './documents/product'
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
+    Article,
+    Blog,
     Collection,
     FeaturedCollection,
     ImageBanner,
