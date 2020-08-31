@@ -14,7 +14,12 @@ export default {
       title: 'Title',
       name: 'title',
       type: 'string',
-      validation: (rule) => rule.required()
+      description: 'For admin purposes only'
+    },
+    {
+      title: 'Heading',
+      name: 'heading',
+      type: 'localized'
     },
     {
       title: 'Handle',

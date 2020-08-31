@@ -13,6 +13,7 @@ import FeaturedCollection from './objects/featured-collection'
 import ImageBanner from './objects/image-banner'
 import Images from './objects/images'
 import LinkItem from './objects/link-item'
+import Localized from './objects/localized'
 
 import Article from './documents/Article'
 import Blog from './documents/blog'
@@ -31,6 +32,7 @@ export default createSchema({
     Images,
     LandingPage,
     LinkItem,
+    Localized,
     Product
   ])
 })

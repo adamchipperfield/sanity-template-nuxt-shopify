@@ -13,7 +13,13 @@ export default {
     {
       title: 'Title',
       name: 'title',
-      type: 'string'
+      type: 'string',
+      description: 'For admin purposes only'
+    },
+    {
+      title: 'Heading',
+      name: 'heading',
+      type: 'localized'
     },
     {
       title: 'Handle',
