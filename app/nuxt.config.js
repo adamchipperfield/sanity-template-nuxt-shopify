@@ -11,7 +11,8 @@ export default async () => {
   
     modules: [
       '@nuxtjs/style-resources',
-      '@nuxtjs/svg'
+      '@nuxtjs/svg',
+      'nuxt-i18n'
     ],
   
     buildModules: [
@@ -21,7 +22,6 @@ export default async () => {
     plugins: [
       { src: '~/scripts/plugins/vue/vuex-persistedstate', mode: 'client' },
       { src: '~/scripts/plugins/vue/vue-async-computed' },
-      { src: '~/scripts/plugins/vue/i18n' },
       { src: '~/scripts/plugins/vue/filters' },
       { src: '~/scripts/plugins/vue/lazysizes', mode: 'client' }
     ],
@@ -51,6 +51,17 @@ export default async () => {
     apollo: {
       clientConfigs: {
         shopify: '~/plugins/shopify/client'
+      }
+    },
+
+    i18n: {
+      locales: ['en-GB'],
+      defaultLocale: 'en-GB',
+      vueI18n: {
+        fallbackLocale: 'en-GB',
+        messages: {
+          'en-GB': require(`./locales/en-GB.json`)
+        }
       }
     },
   
