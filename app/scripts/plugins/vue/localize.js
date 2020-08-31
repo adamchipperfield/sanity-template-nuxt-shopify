@@ -5,8 +5,8 @@
  *
  * @namespace localize
  */
-export default ({}, inject) => {
-  inject('localize', (object, locale) => {
+export default ({ app }, inject) => {
+  inject('localize', (object, locale = app.i18n.locale) => {
     return object[
       locale.toLowerCase().replace('-', '')
     ]

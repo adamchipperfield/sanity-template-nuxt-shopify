@@ -90,7 +90,7 @@ export default {
      */
     collectionHeading() {
       return this.content?.heading
-        ? this.$localize(this.content.heading, 'en-GB')
+        ? this.$localize(this.content.heading)
         : this.collection.title
     },
 
