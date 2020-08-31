@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "export": "nuxt build && nuxt export",
-    "generate": "yarn export --fail-on-error",
+    "generate": "nuxt generate --fail-on-error",
     "build-fragments": "node scripts/plugins/apollo/generate-schema.js",
     "start": "yarn build-fragments && nuxt dev"
   },
@@ -11,7 +10,7 @@
     "graphql-request": "^3.0.0",
     "modularscale-sass": "^3.0.10",
     "node-sass": "^4.14.1",
-    "nuxt": "^2.13.1",
+    "nuxt": "^2.14.4",
     "path": "^0.12.7",
     "sass-loader": "^8.0.2",
     "sass-mq": "^5.0.1"
