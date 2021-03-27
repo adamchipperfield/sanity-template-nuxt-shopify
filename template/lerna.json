@@ -1,7 +1,7 @@
 {
   "packages": [
-    "app",
-    "sanity"
+    "web",
+    "studio"
   ],
   "version": "0.0.0"
 }

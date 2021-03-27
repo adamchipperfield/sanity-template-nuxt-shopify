@@ -1,10 +1,11 @@
 {
-  "name": "headless-shop",
+  "name": "sanity-template-nuxt-shopify",
+  "description": "A Sanity x Nuxt.js e-commerce starter based on Shopify",
+  "author": "Adam Chipperfield",
   "scripts": {
-    "bootstrap": "lerna bootstrap --npm-client=yarn",
-    "start": "yarn bootstrap && lerna run start --parallel --npm-client=yarn"
+    "test": "sanity-template check"
   },
-  "devDependencies": {
-    "lerna": "^3.20.2"
+  "dependencies": {
+    "sanity-template": "^2.3.1"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "name": "headless-shop",
+  "scripts": {
+    "bootstrap": "lerna bootstrap --npm-client=yarn",
+    "start": "yarn bootstrap && lerna run start --parallel --npm-client=yarn"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}
