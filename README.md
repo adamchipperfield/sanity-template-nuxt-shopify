@@ -1,5 +1,7 @@
 # sanity-template-nuxt-shopify
 
+⚠️ **This is a work in progress**
+
 _A Sanity x Nuxt.js e-commerce starter based on Shopify_
 
 This is a starter template for a [Sanity.io](https://sanity.io) project for an e-commerce site. The project is in 2 parts: Sanity's Studio + a Nuxt.js app.
