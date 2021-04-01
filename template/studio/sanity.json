@@ -1,11 +1,11 @@
 {
   "root": true,
   "project": {
-    "name": "Headless Shop"
+    "name": "<#< sanity.projectTitle >#>"
   },
   "api": {
-    "projectId": "egy0f7e4",
-    "dataset": "production"
+    "projectId": "<#< sanity.projectId >#>",
+    "dataset": "<#< sanity.dataset >#>"
   },
   "plugins": [
     "@sanity/base",

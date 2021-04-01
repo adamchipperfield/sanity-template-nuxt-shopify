@@ -3,6 +3,7 @@
   "description": "A Sanity x Nuxt.js e-commerce starter based on Shopify",
   "author": "Adam Chipperfield",
   "scripts": {
+    "build": "sanity-template build --template-values values.json",
     "test": "sanity-template check"
   },
   "dependencies": {

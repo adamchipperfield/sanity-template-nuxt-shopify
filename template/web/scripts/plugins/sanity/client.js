@@ -20,12 +20,7 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
 module.exports = () => {
   return {
     httpEndpoint:
-      `https://egy0f7e4.apicdn.sanity.io/v1/graphql/production/default`,
-    httpLinkOptions: {
-      headers: {
-        Authorization: `Bearer sk6xmmPjoAcozJ6IvJPZqfOHFvAKH8OI7o26GDVPpvZxacsAd8RRjO5U0R7wlJMil22wNwRXn7MCFzOhcbwIhQ2pFAzPanXuU3VqFfNOSWGbZlE63kkxUDF4v1Ox4mAq5vQfwVnO4JR6I1etNO19i0e5toX8FL90tTM6soL800fqgmqnXq8G`
-      }
-    },
+      `https://<#< sanity.projectId >#>.apicdn.sanity.io/v1/graphql/<#< sanity.dataset >#>/default`,
     cache: new InMemoryCache({ fragmentMatcher })
   }
 }
