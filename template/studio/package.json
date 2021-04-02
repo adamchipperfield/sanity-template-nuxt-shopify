@@ -2,7 +2,7 @@
   "name": "sanity",
   "scripts": {
     "start": "yarn graphql && sanity start",
-    "build": "sanity build",
+    "build": "sanity build && cp netlify.toml dist",
     "graphql": "sanity graphql deploy --playground --force"
   },
   "dependencies": {
