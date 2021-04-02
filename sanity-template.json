@@ -12,8 +12,8 @@
         "description": "A Sanity + Shopify e-commerce website built with Nuxt.js",
         "dir": "./web",
         "buildSettings": {
-          "base": "/",
-          "dir": "/web/dist",
+          "base": "web",
+          "dir": "web/dist",
           "cmd": "npm run generate"
         }
       },
@@ -24,8 +24,8 @@
         "description": "An open source headless real-time CMS.",
         "dir": "./studio",
         "buildSettings": {
-          "base": "/",
-          "dir": "/studio/dist",
+          "base": "studio",
+          "dir": "studio/dist",
           "cmd": "npm run build"
         }
       }
